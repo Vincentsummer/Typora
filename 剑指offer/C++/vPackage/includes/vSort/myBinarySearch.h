@@ -1,7 +1,7 @@
-#ifndef MYSORT_MYBINARYSEARCH_H_
-#define MYSORT_MYBINARYSEARCH_H_
+#ifndef VSORT_MYBINARYSEARCH_H_
+#define VSORT_MYBINARYSEARCH_H_
 
-// ¶þ·Ö²éÕÒ£¬ Èô´æÔÚ£¬ ·µ»ØÊý×é a ÖÐ k µÄÏÂ±ê£¬Èô²»´æÔÚ£¬·µ»Ø-1£»
+// ï¿½ï¿½ï¿½Ö²ï¿½ï¿½Ò£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ a ï¿½ï¿½ k ï¿½ï¿½ï¿½Â±ê£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½-1ï¿½ï¿½
 int binarySearch(int k, int a[], int length){
 	int left = 0, right = length - 1;
 	while(left <= right){
@@ -18,4 +18,4 @@ int binarySearch(int k, int a[], int length){
 
 
 
-#endif /* MYSORT_MYBINARYSEARCH_H_ */
+#endif /* VSORT_MYBINARYSEARCH_H_ */

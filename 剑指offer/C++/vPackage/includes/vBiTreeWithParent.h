@@ -1,12 +1,13 @@
-#ifndef MYBITREEWITHPARENT_H_
-#define MYBITREEWITHPARENT_H_
+#ifndef VBITREEWITHPARENT_H_
+#define VBITREEWITHPARENT_H_
 
 #include <iostream>
 #include <cstring>
-#include "myBinaryTree.h"
+
+#include "vBinaryTree.h"
 
 
-// ´øÓÐ¸¸½ÚµãÖ¸ÕëµÄ¶þ²æÊ÷
+// ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½Úµï¿½Ö¸ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½
 class TreeNode{
 public:
 	int 	data;
@@ -16,10 +17,10 @@ public:
 typedef TreeNode *TNode;
 
 
-// ´´½¨¶þ²æÊ÷
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void creatBiTreeWithParent(TNode &T, TNode &parent){
-	// °´ÏÈÐò´ÎÐòÊäÈë¶þ²æÊ÷ÖÐ½ÚµãµÄÖµ£¨Ò»¸öÊý×Ö£©£¬¿Õ×Ö·û±íÊ¾¿ÕÊ÷¡£
-	// ¹¹Ôì¶þ²æÁ´±í±íÊ¾µÄ¶þ²æÊ÷T
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð½Úµï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½T
 	T = new TreeNode;
 	if (T == parent)
 		T->parent = nullptr;
@@ -28,13 +29,13 @@ void creatBiTreeWithParent(TNode &T, TNode &parent){
 		std::cout << parent->data << std::endl;
 	}
 	std::string s;
-	// ½ÓÊÜÊäÈë¿Õ¸ñ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¸ï¿½
 	std::cin >> s;
 
 	if (s == "#")
 		T = nullptr;
 	else{
-		T = new TreeNode();		// Éú³É¸ù½áµã
+		T = new TreeNode();		// ï¿½ï¿½ï¿½É¸ï¿½ï¿½ï¿½ï¿½
 		bool flag = false;
 		while(!flag){
 			try{
@@ -42,18 +43,18 @@ void creatBiTreeWithParent(TNode &T, TNode &parent){
 				flag = true;
 			}catch(std::invalid_argument&){
 				flag = false;
-				std::cout << "Invalid_argument£¡Please Input again: " << std::endl;
+				std::cout << "Invalid_argumentï¿½ï¿½Please Input again: " << std::endl;
 				std::cin >> s;
 			}
 		}
 
-		creatBiTreeWithParent(T->left, T); 		// ¹¹Ôì×ó×ÓÊ÷
-		creatBiTreeWithParent(T->right, T); 	// ¹¹ÔìÓÒ×ÓÊ÷
+		creatBiTreeWithParent(T->left, T); 		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		creatBiTreeWithParent(T->right, T); 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 	return;
 }
 
-// Ç°Ðò±éÀú
+// Ç°ï¿½ï¿½ï¿½ï¿½ï¿½
 void preOrderTraverse(TNode T){
 	if (T != nullptr){
 		std::cout << T->data << " ";
@@ -71,4 +72,4 @@ void preOrderWithParent(TNode T){
 	}
 }
 
-#endif /* MYBITREEWITHPARENT_H_ */
+#endif /* VBITREEWITHPARENT_H_ */

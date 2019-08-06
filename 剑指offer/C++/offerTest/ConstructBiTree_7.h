@@ -1,24 +1,25 @@
 /**
- * ²âÊÔÓÃÀı£º
- * ÆÕÍ¨¶ş²æÊ÷£¨ÍêÈ«¶ş²æÊ÷£¬²»ÍêÈ«¶ş²æÊ÷£©
- * ÌØÊâ¶ş²æÊ÷£¨ËùÓĞ½ÚµãÎŞÓÒ/×ó½Úµã£»Ö»ÓĞÒ»¸ö½Úµã£©
- * ÌØÊâÊäÈë²âÊÔ£¨¶ş²æÊ÷¸ù½áµãÖ¸ÕëÎªnullptr, ÊäÈëµÄÇ°Ğò±éÀúºÍºóĞò±éÀú²»Æ¥Åä£©
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ½Úµï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½Úµã£»Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµã£©
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Îªnullptr, ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ä£©
  * **/
 #ifndef CONSTRUCTBITREE_7_H_
 #define CONSTRUCTBITREE_7_H_
 
 #include <exception>
-#include "../myPackage/includes/myBinaryTree.h"
+
+#include "../vPackage/includes/vBinaryTree.h"
 
 BiTree ConstructCore(int* startPreorder, int* endPreorder, int* startInorder, int* endInorder){
-	// Ç°Ğò±éÀúĞòÁĞµÄµÚÒ»¸öÊı×ÖÊÇ¸ù½áµãµÄÖµ
+	// Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ĞµÄµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	int rootValue = startPreorder[0];
 	BiTree root = new BiTNode();
 	root->m_nValue = rootValue;
 	root->m_pLeft = nullptr;
 	root->m_pRight = nullptr;
 
-	// ¶ş²æÊ÷Ö»º¬ÓĞÒ»¸ö½Úµã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½
 	if (startPreorder == endPreorder){
 		if (startInorder == endInorder && *startPreorder == *startInorder)
 			return root;
@@ -26,7 +27,7 @@ BiTree ConstructCore(int* startPreorder, int* endPreorder, int* startInorder, in
 			throw "Invalid input.";
 	}
 
-	// ÔÚÖĞĞò±éÀúÖĞÑ°ÕÒ¸ù½áµãµÄÖµ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½Ò¸ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	int* rootInorder = startInorder;
 	while (rootInorder <= endInorder && *rootInorder != rootValue)
 		++rootInorder;
@@ -37,11 +38,11 @@ BiTree ConstructCore(int* startPreorder, int* endPreorder, int* startInorder, in
 	int leftLength = rootInorder - startInorder;
 	int* leftPreorderEnd = startPreorder + leftLength;
 	if (leftLength > 0){
-		// ¹¹½¨×ó×ÓÊ÷
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		root->m_pLeft = ConstructCore(startPreorder+1, leftPreorderEnd, startInorder, rootInorder-1);
 	}
 	if (leftLength < endPreorder - startPreorder){
-		// ¹¹½¨ÓÒ×ÓÊ÷
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		root->m_pRight = ConstructCore(leftPreorderEnd+1, endPreorder, rootInorder+1, endInorder);
 	}
 

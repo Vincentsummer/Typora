@@ -1,15 +1,12 @@
 #include <iostream>
 #include <cstring>
-
-#include "myPackage/includes/mySort/myBinarySearch.h"
+#include "./offerTest/CutRope_14.h"
 
 using namespace std;
 
 int main(void){
-	int a[] = {1,2,3,4,5,7,8,9};
-	int length = 9;
-	int k = 7;
-	int result = binarySearch(k, a, length);
+	int length = 4;
+	int result = maxProductAfterCutting_2(length);
 	cout << result << endl;
 
 }

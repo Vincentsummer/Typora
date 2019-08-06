@@ -1,5 +1,5 @@
-#ifndef MYBINARYTREE_H_
-#define MYBINARYTREE_H_
+#ifndef VBINARYTREE_H_
+#define VBINARYTREE_H_
 
 #include <iostream>
 #include <cstring>
@@ -15,11 +15,11 @@ public:
 typedef BinaryTreeNode BiTNode, *BiTree;
 
 void creatBitree(BiTree &T){
-	// °´ÏÈÐò´ÎÐòÊäÈë¶þ²æÊ÷ÖÐ½ÚµãµÄÖµ£¨Ò»¸öÊý×Ö£©£¬¿Õ×Ö·û±íÊ¾¿ÕÊ÷¡£
-	// ¹¹Ôì¶þ²æÁ´±í±íÊ¾µÄ¶þ²æÊ÷T
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð½Úµï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½T
 	T = new BiTNode;
 	std::string s;
-	// ½ÓÊÜÊäÈë¿Õ¸ñ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¸ï¿½
 	std::cin >> s;
 	if (s == "#")
 		T = nullptr;
@@ -32,13 +32,12 @@ void creatBitree(BiTree &T){
 				flag = true;
 			}catch(std::invalid_argument&){
 				flag = false;
-				std::cout << "Invalid_argument£¡Please Input again: " << std::endl;
+				std::cout << "Invalid_argumentï¿½ï¿½Please Input again: " << std::endl;
 				std::cin >> s;
 			}
 		}
-
-		creatBitree(T->m_pLeft); 	// ¹¹Ôì×ó×ÓÊ÷
-		creatBitree(T->m_pRight); 	// ¹¹ÔìÓÒ×ÓÊ÷
+		creatBitree(T->m_pLeft); 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		creatBitree(T->m_pRight); 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 }
 
@@ -49,5 +48,4 @@ void preOrderTraverse(BiTree T){
 		preOrderTraverse(T->m_pRight);
 	}
 }
-
-#endif /* MYBINARYTREE_H_ */
+#endif /* VBINARYTREE_H_ */

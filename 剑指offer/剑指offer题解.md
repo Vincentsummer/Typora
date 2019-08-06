@@ -556,7 +556,7 @@ T CQueue<T>::deleteHead(){
 
 ### 题目一：求斐波那契数列的第 $n$ 项。
 
-​	写一个函数，输入 $n$ ，求斐波那契数列的第 $n$ 项。斐波那契数列的定义如下：
+写一个函数，输入 $n$ ，求斐波那契数列的第 $n$ 项。斐波那契数列的定义如下：
 $$
 f(n)=
 \begin{cases}
@@ -605,11 +605,261 @@ long long Fibonacci(unsigned n){
 
 ### 题目二：青蛙跳台阶问题。
 
-​	一只青蛙一次可以跳上 1 级台阶，也可以跳上 2 级台阶。求该青蛙跳上一个 $n$ 级台阶总共有多少跳法。
+一只青蛙一次可以跳上 1 级台阶，也可以跳上 2 级台阶。求该青蛙跳上一个 $n$ 级台阶总共有多少跳法。
 
 **解法：同斐波那契数列。**
 
 
 
 ## 面试题11：旋转数组的最小数字
+
+### 题目：把一个数组最开始的若干个元素搬到数组的末尾，称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素，例如，数组 {3,4,5,1,2} 为 {1,2,3,4,5} 的一个旋转，该数组的最小值为1。
+
+**解法：二分查找，需考虑有重复数字的情况，特殊情况只能顺序查找。**
+
+```c++
+/**
+ * 测试用例：
+ * 1. 功能测试
+ * 2. 边界值测试
+ * 3. 特殊输入测试
+ * **/
+
+int MinInOrder(int* numbers, int index1, int index2){
+	int result = numbers[index1];
+	for (int i = index1 + 1; i <= index2; ++i){
+		if (result > numbers[i])
+			result = numbers[i];
+	}
+	return result;
+}
+
+int Min(int* numbers, int length){
+	if (numbers == nullptr || length <= 0)
+		throw "Invalid parameters";
+	int index1 = 0, index2 = length - 1, indexMid = index1;
+
+	// 二分查找
+	while(numbers[index1] >= numbers[index2]){
+		// 当两指针相隔为1时 break
+		if (index2 - index1 == 1){
+			indexMid = index2;
+			break;
+		}
+
+		indexMid = (index1 + index2) / 2;
+
+		// 当三者指向的数字都相等时，只能顺序查找
+		if (numbers[index1] == numbers[index2] && numbers[indexMid] == numbers[index1])
+			return MinInOrder(numbers, index1, index2);
+
+		if (numbers[indexMid] >= numbers[index1])
+			index1 = indexMid;
+		else if (numbers[indexMid] <= numbers[index2])
+			index2 = indexMid;
+	}
+	return numbers[indexMid];
+}
+```
+
+## 面试题12：矩阵中的路径
+
+### 题目：请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵的任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子。
+
+**解法：回朔法**
+
+C++代码：
+
+```C++
+/**
+ * 测试用例：
+ * 1. 功能测试（在多行多列的矩阵中不存在路径）
+ * 2. 边界值测试 （矩阵中只有一行或者一列，矩阵和路径中的所有字母都是相同的）
+ * 3. 特殊输入测试 (输入nullptr指针)
+ * **/
+
+bool hasPathCore(const char* matrix, int rows, int cols, int row, int col, const char* str, int& pathLength, bool* visited){
+	if (str[pathLength] == '\0')
+		return true;
+
+	bool hasPath = false;
+
+	if (row >= 0 && row < rows && col >= 0 && col < cols && matrix[row * cols + col] == str[pathLength]
+				&& !visited[row * cols + col]){
+		++pathLength;
+		visited[row * cols + col] = true;
+
+		hasPath = hasPathCore(matrix, rows, cols, row, col-1, str, pathLength, visited)
+				|| hasPathCore(matrix, rows, cols, row-1, col, str, pathLength, visited)
+				|| hasPathCore(matrix, rows, cols, row, col+1, str, pathLength, visited)
+				|| hasPathCore(matrix, rows, cols, row+1, col, str, pathLength, visited);
+
+		if (!hasPath){
+			--pathLength;
+			visited[row * cols + col] = false;
+		}
+	}
+
+	return hasPath;
+}
+
+bool hasPath(char* matrix, int rows, int cols, char* str){
+	if (matrix == nullptr || rows < 1 || cols < 1 || str == nullptr)
+		return false;
+	bool* visited = new bool[rows * cols];
+
+	// 函数原型是：void *memset(void *s, int ch, size_t n);
+	// 函数功能是：将s所指向的某一块内存中的前n个字节的内容全部设置为ch指定的ASCII值。
+	memset(visited, 0, rows * cols);
+
+	int pathLength = 0;
+	for (int row = 0; row < rows; ++row){
+		for (int col = 0; col < cols; ++col){
+			if (hasPathCore(matrix, rows, cols, row, col, str, pathLength, visited))
+				return true;
+		}
+	}
+	delete[] visited;
+	return false;
+}
+```
+
+## 面试题13：机器人的移动路径
+
+### 题目：地上有一个 $m$ 行 $n$ 列的方格。一个机器人从坐标（0,0）的格子开始移动，它每次可以向左、右、上、下移动一格，但不能进入行坐标和列坐标的数位之和大于 $k$ 的格子。
+
+**解法：同12题，回朔法**
+
+C++代码：
+
+```c++
+/**
+ * 测试用例：
+ * 1. 功能测试（方格为多行多列，k为正数）。
+ * 2. 边界值测试（方格只有 一行或者只有一列，k等于0）
+ * 3. 特殊输入测试（k为负数）
+ * **/
+
+int getDigitSum(int number){
+	int sum = 0;
+	while(number > 0){
+		sum += number % 10;
+		number /= 10;
+	}
+	return sum;
+}
+
+bool check(int threashold, int rows, int cols, int row, int col, bool* visited){
+	if (row >= 0 && row < rows && col >= 0 && col < cols &&
+			getDigitSum(row) + getDigitSum(col) <= threashold &&
+			!visited[row * cols + col])
+		return true;
+
+	return false;
+}
+
+int movingCountCore(int threashold, int rows, int cols, int row, int col, bool* visited){
+	int count = 0;
+	if (check(threashold, rows, cols, row, col, visited)){
+		visited[rows * cols + col] = true;
+
+		count = 1 + movingCountCore(threashold, rows, cols, row-1, col, visited)
+				+ movingCountCore(threashold, rows, cols, row, col-1, visited)
+				+ movingCountCore(threashold, rows, cols, row, col+1, visited)
+				+ movingCountCore(threashold, rows, cols, row+1, col, visited);
+	}
+	return count;
+}
+
+int movingCount(int threashold, int rows, int cols){
+	if (threashold < 0 || rows < 0 || cols < 0)
+		return 0;
+
+	bool* visited = new bool[rows * cols];
+	memset(visited, 0, rows * cols);
+
+	int count = movingCountCore(threashold, rows, cols, 0, 0, visited);
+
+	delete[] visited;
+	return count;
+}
+```
+
+**总结：通常在二维矩阵上寻找路径这类问题都可以通过回朔法来解决。**
+
+## 面试题14：剪绳子
+
+### 题目：有一根长度为 $n$ 的绳子，请把绳子剪成 $m$ 段（$m$、$n$ 都是整数，$n>1$ 并且 $m>1$ ），每段绳子的长度记为 $k[0],k[1],...,k[m]$。请问 $k[0] \times k[1] \times...\times k[m]$ 可能的最大乘积是多少？
+
+**解法一：动态规划，时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。**
+
+定义函数 $f(n)$ 为把长度为 $n$ 的绳子剪成若干段后各段长度乘积的最大值。在剪第一刀的时候，有 $n-1$ 种可能的选择，即第一段绳子的长度可能是 $1,2,...,n-1$，因此 $f(n)=\max(f(i) \times f(n-i))$，其中 $0<i<n$。
+
+**解法二：贪心算法，时间和空间复杂度  $O(1)$**
+
+当 $n\ge5$ 时，尽可能多地剪长度为 3 的绳子（可以证明这种情况下有：$2(n-2)>n$ 并且 $3(n-3)>n$，另外有：$3(n-3)\ge 2(n-2)$。）；当剩下的绳子长度为 4 时，把绳子剪成两段为 2 的绳子。
+
+C++代码：
+
+```c++
+/**
+ * 测试用例：
+ * 1. 功能测试（绳子的初始长度大于5）
+ * 2. 边界值测试（绳子的初始长度小于5）
+ * **/
+
+// 动态规划方法
+int maxProductAfterCutting_1(int length){
+	if (length < 2)
+		return 0;
+	if (length == 2)
+		return 1;
+	if (length == 3)
+		return 2;
+    // 数组第i个元素表示把长度为i的绳子剪掉后的各段的最大乘积。
+	int* products = new int[length+1];
+	// 第i个元素为下标加1
+	products[0] = 0;
+	products[1] = 1;
+	products[2] = 2;
+	products[3] = 3;
+
+	int max = 0;
+	for (int i = 4; i <= length; ++i){
+		max = 0;
+		for (int j = 1; j <= i / 2; ++j){
+			// 长度为i的绳子在剪第一次的时候有i-1种可能 其中最优值为 max(products[i] * products[i-j])
+			int product = products[j] * products[i-j];
+			if (max < product)
+				max = product;
+			products[i] = max;
+		}
+	}
+
+	max = products[length];
+	delete[] products;
+
+	return max;
+}
+
+//贪心算法
+int maxProductAfterCutting_2(int length){
+	if (length < 2)
+		return 0;
+	if (length == 2)
+		return 1;
+	if (length == 3)
+		return 2;
+
+	// 尽可能多地剪去长度为 3 的绳子段
+	int timesOf3 = length / 3;
+
+	//当绳子最后剩下的长度为 4 的时候，不能再剪去长度为 3 的绳子段。 此时剪成 2X2
+	if (length - timesOf3 * 3 == 1)
+		timesOf3 -= 1;
+
+	int timesOf2 = (length - timesOf3 * 3) / 2;
+	return (int)(pow(3, timesOf3)) * (int)(pow(2, timesOf2));
+}
+```
 

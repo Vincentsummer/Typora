@@ -1,15 +1,15 @@
 /**
- * ²âÊÔÓÃÀı;
- * 1. ¹¦ÄÜ²âÊÔ£ºÊäÈëµÄÁ´±íÓĞ¶à¸ö½Úµã»òÒ»¸ö½Úµã¡£
- * 2. ÌØÊâÊäÈë²âÊÔ£ºÊäÈëµÄÁ´±íÍ·½ÚµãÖ¸ÕëÎªnullptr¡£
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;
+ * 1. ï¿½ï¿½ï¿½Ü²ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½Úµï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµã¡£
+ * 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Úµï¿½Ö¸ï¿½ï¿½Îªnullptrï¿½ï¿½
  * **/
 
 #include <iostream>
 #include <stack>
 
-#include "../myPackage/includes/myList.h"
+#include "../vPackage/includes/vList.h"
 
-// Õ»ÊµÏÖ
+// Õ»Êµï¿½ï¿½
 void printListReversingly_Stack(LinkList pHead){
 	std::stack<LinkList> nodes;
 
@@ -26,7 +26,7 @@ void printListReversingly_Stack(LinkList pHead){
 	}
 }
 
-// µİ¹éÊµÏÖ
+// ï¿½İ¹ï¿½Êµï¿½ï¿½
 void printListReversingly_Recursively(LinkList pHead){
 	if (pHead != nullptr){
 		if (pHead->m_pNext != nullptr)

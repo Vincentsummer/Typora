@@ -1,13 +1,17 @@
 #include <iostream>
 #include <cstring>
-#include "./offerTest/CutRope_14.h"
+#include "./vPackage/includes/vList.h"
+#include "offerTest/DeleteDuplication_18_2.h"
 
 using namespace std;
 
 int main(void){
-	int length = 4;
-	int result = maxProductAfterCutting_2(length);
-	cout << result << endl;
+	LinkList pHead = nullptr;
+	int n = 10;
+	pHead = creatList_Order(n);
+
+	DeleteDuplication(&pHead);
+	PrintList(pHead);
 
 }
 

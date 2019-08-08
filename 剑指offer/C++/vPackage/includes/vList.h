@@ -1,3 +1,6 @@
+#ifndef VLIST_H_
+#define VLIST_H_
+
 #include <iostream>
 
 typedef struct ListNode{
@@ -5,21 +8,23 @@ typedef struct ListNode{
 	ListNode* 	m_pNext;
 }LNode, *LinkList;
 
+/**é€†åºåˆ›å»ºå•é“¾è¡¨**/
 LinkList creatList_Reverse(int n){
-	// ÄæÎ»ĞòÊäÈën¸öÔªËØµÄÖµ£¬½¨Á¢´ø±íÍ·½ÚµãµÄµ¥Á´ÏßĞÔ±íL
+	// ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½Ôªï¿½Øµï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Úµï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½L
 	LinkList L = new LNode();
-	L->m_pNext = nullptr;  // ÏÈ½¨Á¢Ò»¸ö´øÍ·½ÚµãµÄµ¥Á´±í
+	L->m_pNext = nullptr;  // ï¿½È½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Í·ï¿½Úµï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½
 	for (int i = n; i > 0; --i){
-		LinkList p = new LNode(); // Éú³ÉĞÂ½Úµã
-		std::cin >> p->m_nValue;  // ÊäÈëÔªËØÖµ
-		p->m_pNext = L->m_pNext;	// ²åÈëµ½±íÍ·
+		LinkList p = new LNode(); // ï¿½ï¿½ï¿½ï¿½ï¿½Â½Úµï¿½
+		std::cin >> p->m_nValue;  // ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Öµ
+		p->m_pNext = L->m_pNext;	// ï¿½ï¿½ï¿½ëµ½ï¿½ï¿½Í·
 		L->m_pNext = p;
 	}
 	return L->m_pNext;
 }
 
+/**é¡ºåºåˆ›å»ºå•é“¾è¡¨**/
 LinkList creatList_Order(int n){
-	//Ë³ĞòÊäÈën¸öÔªËØµÄÖµ£¬½¨Á¢´øÍ·½ÚµãµÄµ¥Á´ÏßĞÔ±íL
+	//Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½Ôªï¿½Øµï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Úµï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½L
 	LinkList L, p;
 	L = new LNode();
 	p = L;
@@ -32,3 +37,47 @@ LinkList creatList_Order(int n){
 	p->m_pNext = nullptr;
 	return L->m_pNext;
 }
+
+// é¡ºåºéå†å¹¶æ‰“å°é“¾è¡¨
+void PrintList(LinkList pHead){
+	LinkList pNode = pHead;
+	while(pNode != nullptr){
+		std::cout << pNode->m_nValue << " ";
+		pNode = pNode->m_pNext;
+	}
+	std::cout << std::endl;
+}
+
+/**O(1)æ—¶é—´å†…åˆ é™¤å•é“¾è¡¨ä¸­æŸä¸€èŠ‚ç‚¹**/
+void vDeleteNode(LinkList* pListHead, LinkList pTobeDeleted){
+	if (!pListHead || !pTobeDeleted)
+		return;
+	// è¦åˆ é™¤çš„ä¸æ˜¯å°¾èŠ‚ç‚¹
+	if (pTobeDeleted->m_pNext){
+		LinkList pNext = pTobeDeleted->m_pNext;
+		pTobeDeleted->m_nValue = pNext->m_nValue;
+		pTobeDeleted->m_pNext = pNext->m_pNext;
+
+		delete pNext;
+		pNext = nullptr;
+	}
+
+	// é“¾è¡¨åªæœ‰ä¸€ä¸ªèŠ‚ç‚¹ï¼Œåˆ é™¤å¤´èŠ‚ç‚¹ï¼ˆä¹Ÿæ˜¯å°¾èŠ‚ç‚¹ï¼‰
+	else if (*pListHead == pTobeDeleted){
+		delete pTobeDeleted;
+		pTobeDeleted = nullptr;
+		*pListHead = nullptr;
+	}
+
+	// é“¾è¡¨ä¸­æœ‰å¤šä¸ªèŠ‚ç‚¹ï¼Œåˆ é™¤å°¾èŠ‚ç‚¹ï¼Œæ­¤æ—¶ä»éœ€é¡ºåºéå†é“¾è¡¨ã€‚
+	else {
+		LinkList pNode = *pListHead;
+		while(pNode->m_pNext != pTobeDeleted)
+			pNode = pNode->m_pNext;
+
+		pNode->m_pNext = nullptr;
+		delete pTobeDeleted;
+		pTobeDeleted = nullptr;
+	}
+}
+#endif /* VLIST_H_ */

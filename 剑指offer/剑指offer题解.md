@@ -863,3 +863,337 @@ int maxProductAfterCutting_2(int length){
 }
 ```
 
+## 面试题15：二进制中1的个数
+
+### 题目：请实现一个函数，输入一个整数，输出该整数的二进制表示中1的个数。
+
+**解法：位运算。**
+
+C++代码：
+
+```c++
+/**
+ * 测试用例：
+ * 1. 正数（包括边界值1,0x7FFFFFFF）。
+ * 2. 负数（包括边界值0x80000000,0xFFFFFFFF）。
+ * **/
+
+// 方式一:将数n与1做与运算，接着将1左移后不断重复上述过程
+int NumberOf1_1(int n){
+	int count = 0;
+	unsigned int flag = 1;
+	while(flag){
+		if (n & flag)
+			count++;
+
+		flag = flag << 1;
+	}
+
+	return count;
+}
+
+// 方式二：把一个整数减去1后再和该整数做与运算，会把该整数最右边的1变成0。
+
+int NumberOf1_2(int n){
+	int count = 0;
+	while (n){
+		n &= (n-1);
+		count++;
+	}
+	return count;
+}
+```
+
+## 面试题16：数值的整数次方
+
+### 题目：实现函数double Power(double base, int exponent)，求base的exponent次方。不得使用库函数，不需要考虑大数问题。
+
+**注意：考虑指数小于1（零和负数的情况）**
+
+求整数次方的 $O(logn)$ 解法：
+$$
+a^n=
+\begin{cases}
+a^{n/2} \cdot a^{n/2} \qquad\qquad\qquad n \ 为偶数 \\
+a^{(n-1)/2} \cdot a^{(n-1)/2} \cdot a \qquad n \ 为奇数
+\end{cases}
+$$
+C++代码：
+
+```c++
+/**
+ * 测试用例：
+ * 将底数和指数分别设为正数、负数和零。
+ * **/
+
+bool g_InvalidInput = false;
+
+// 两种求整数次方的方法
+double PowerWithUnsignedExponent(double base, unsigned int exponent){
+	double result = 1.0;
+	for (unsigned int i = 1; i <= exponent; ++i)
+		result *= base;
+
+	return result;
+}
+
+// O(logn)解法
+double PowerWithUnsignedExponent2(double base, unsigned int exponent){
+	if (exponent == 0)
+		return 1;
+	if (exponent == 1)
+		return base;
+
+	double result = PowerWithUnsignedExponent2(base, exponent >> 1);
+	result *= result;
+	if (exponent & 0x01 == 1)
+		result *= base;
+
+	return result;
+}
+
+bool equal(double num1, double num2) {
+	return (num1 - num2) > -0.0000001 && (num1 - num2) < 0.0000001 ? true : false;
+}
+
+// 分别讨论exponent不同情况
+double Power(double base, int exponent){
+	g_InvalidInput = false;
+
+	if (equal(base, 0.0) && exponent < 0){
+		g_InvalidInput = true;
+		return 0.0;
+	}
+
+	unsigned int absExponent = (unsigned int)(exponent);
+	if (exponent < 0)
+		absExponent = (unsigned int)(-exponent);
+
+	double result = PowerWithUnsignedExponent(base, absExponent);
+	if (exponent < 0)
+		result = 1.0 / result;
+
+	return result;
+}
+```
+
+
+
+## 面试题17：打印从1到最大的n位数
+
+题目：输入数字 $n$，按顺序打印出从 $1$ 到 最大的 $n$ 位十进制数。
+
+**解法：大数问题。用字符串数组表示大数，注意打印时需要去掉前置0。**
+
+C++代码：
+
+```c++
+/**
+ * 测试用例：
+ * 1. 功能测试（输入1、2、3...）
+ * 2. 特殊输入测试（输入-1、0）
+ * **/
+
+// 判断number是否到达了最大的n位数。利用最高位的进位判断。
+bool Increment(char* number){
+	bool isOverflow = false;
+	int nTakeOver = 0;
+	int nLength = strlen(number);
+	for (int i = nLength-1; i >= 0; i--){
+		int nSum = number[i] - '0' + nTakeOver;
+		if (i == nLength - 1)
+			nSum++;
+		if (nSum >= 10){
+			if (i == 0)
+				isOverflow = true;
+			else{
+				nSum -= 10;
+				nTakeOver = 1;
+				number[i] = '0' + nSum;
+			}
+		}
+		else{
+			number[i] = '0' + nSum;
+			break;
+		}
+	}
+	return isOverflow;
+}
+
+// 打印函数，打印时去掉前置0
+void PrintNumber(char* number){
+	bool isBegining0 = true;
+	int nLength = strlen(number);
+
+	for (int i = 0; i < nLength; ++i){
+		if (isBegining0 && number[i] != '0')
+			isBegining0 = false;
+		if (!isBegining0)
+			printf("%c", number[i]);
+	}
+
+	printf("\t");
+}
+
+void Print1ToMaxOfNDigits(int n){
+	if (n <= 0)
+		return;
+
+	char* number = new char[n+1];
+	memset(number, '0', n);
+	number[n] = '\0';
+
+	while(!Increment(number)){
+		PrintNumber(number);
+	}
+
+	delete[] number;
+}
+
+/**
+ * 递归法求解
+ * **/
+
+void Print1ToMaxOfDigitsRecursively(char* number, int length, int index){
+	if (index == length - 1){
+		PrintNumber(number);
+		return;
+	}
+
+	for (int i = 0; i < 10; i++){
+		number[index+1] = i + '0';
+		Print1ToMaxOfDigitsRecursively(number, length, index+1);
+	}
+}
+
+void Print1ToMaxOfNDigits2(int n){
+	if (n <= 0)
+		return;
+	char* number = new char[n+1];
+	number[n] = '\0';
+
+	for (int i = 0; i < 10; i++){
+		number[0] = i + '0';
+		Print1ToMaxOfDigitsRecursively(number, n, 0);
+	}
+
+	delete[] number;
+}
+```
+
+## 面试题18：删除链表的节点
+
+### 题目一：在 $O(1)$ 时间内删除链表节点。
+
+给定一个单向链表的头指针和一个节点指针，定义一个函数在 $O(1)$ 时间内删除该节点。链表节点与函数定义如下：
+
+```c++
+typedef struct ListNode{
+	int 		m_nValue;
+	ListNode* 	m_pNext;
+}LNode, *LinkList;
+
+void DeleteNode(ListNode* pListHead, ListNode* pTobeDeleted);
+```
+
+**思路：把下一节点的内容复制到待删除节点上覆盖原有的内容，再把下一个节点删除。这种思路基于一个前提：即待删除节点存在于链表中，而判断链表中是否包含某一节点需要 O(n) 的时间。**
+
+C++代码：
+
+```c++
+/**
+ * 测试用例：
+ * 1. 功能测试
+ * 2. 特殊输入测试（指向链表头结点的为nullptr指针，指向待删除节点的为nullptr指针）
+ * **/
+
+/**O(1)时间内删除单链表中某一节点**/
+// 此处可能对头结点指针进行修改，因此需要传递头结点指针的指针。
+void DeleteNode(ListNode** pListHead, ListNode* pTobeDeleted){
+	if (!pListHead || !pTobeDeleted)
+		return;
+	// 要删除的不是尾节点
+	if (pTobeDeleted->m_pNext ！= nullptr){
+		ListNode* pNext = pTobeDeleted->m_pNext;
+		pTobeDeleted->m_nValue = pNext->m_nValue;
+		pTobeDeleted->m_pNext = pNext->m_pNext;
+
+		delete pNext;
+		pNext = nullptr;
+	}
+
+	// 链表只有一个节点，删除头节点（也是尾节点）
+	else if (*pListHead == pTobeDeleted){
+		delete pTobeDeleted;
+		pTobeDeleted = nullptr;
+		*pListHead = nullptr;
+	}
+
+	// 链表中有多个节点，删除尾节点，此时仍需顺序遍历链表。
+	else {
+		ListNode* pNode = *pListHead;
+		while(pNode->m_pNext != pTobeDeleted)
+			pNode = pNode->m_pNext;
+
+		pNode->m_pNext = nullptr;
+		delete pTobeDeleted;
+		pTobeDeleted = nullptr;
+	}
+}
+```
+
+### 题目二：删除链表中重复的节点
+
+在一个排序的链表中删除重复的节点。
+
+C++代码：
+
+```c++
+/**
+ * 测试用例：
+ * 1. 功能测试
+ * 2. 特殊输入测试（指向头结点的指针为nullptr指针，链表中的所有节点都是重复的）
+ * **/
+
+void DeleteDuplication(ListNode** pHead){
+	if (pHead == nullptr || *pHead == nullptr)
+		return;
+	// 指向当前节点的前一个节点的指针
+	ListNode* pPreNode = nullptr;
+	// 指向当前接节点的指针，注意此处的pHead为二级指针。
+	ListNode* pNode = *pHead;
+	while(pNode != nullptr){
+		ListNode* pNext = pNode->m_pNext;
+
+		// 判断当前节点是否为重复节点
+		bool needDelete = false;
+		if (pNext != nullptr && pNext->m_nValue == pNode->m_nValue)
+			needDelete = true;
+
+		if (!needDelete){
+			pPreNode = pNode;
+			pNode = pNode->m_pNext;
+		}
+		else{
+			int value = pNode->m_nValue;
+			ListNode* pToBeDel = pNode;
+			while(pToBeDel != nullptr && pToBeDel->m_nValue == value){
+				pNext = pToBeDel->m_pNext;
+
+				delete pToBeDel;
+				pToBeDel = nullptr;
+
+				pToBeDel = pNext;
+			}
+
+			if (pPreNode == nullptr)
+				*pHead = pNext;
+			else
+				pPreNode->m_pNext = pNext;
+			pNode = pNext;
+		}
+	}
+}
+```
+
+## 面试题19：正则表达式匹配

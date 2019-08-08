@@ -19,3 +19,15 @@
 - cat /proc/version	查看linux内核、gcc编译器和Ubuntu版本号
 - uname -a	显示linux的内核版本和系统位数
 - lsb_release -a	查看ubuntu发行版本号
+
+### 进程相关命令
+
+- ps [pid]	查看进程（特定pid的进程）
+
+- ps a	显示现行终端机下的所有程序，包括其他用户的程序。
+
+- ps -A	显示所有程序。
+
+- kill [pid]	杀死特定进程 （eg：kill －9 324，-9为强制杀死）
+
+  

@@ -90,7 +90,7 @@ FIND-MAXIMUM-SUBARRAY($A,low,high$)
 
  8		 **return** ($left$-$low$，$left$-$high$，$left$-$ sum$)
 
- 9	**elseif** $right$-$sum \geq left$-$sum$ and $right$-$sum \geq cross $-$sum$
+ 9	**else if** $right$-$sum \geq left$-$sum$ and $right$-$sum \geq cross $-$sum$
 
 10		**return** ($right$-$low$，$left$-$right$，$right $-$ sum$)
 
@@ -166,9 +166,9 @@ CUT-ROD($p,n$)
 
 #### 子问题图
 
-​	问题的子问题图表达了涉及的子问题及子问题之间的依赖关系。(n=4时，钢条切割问题的子问题图如下图所示)
+问题的子问题图表达了涉及的子问题及子问题之间的依赖关系。(n=4时，钢条切割问题的子问题图如下图所示)
 
-![子问题图](E:\Vincent\notebook\Typora\assets\子问题图.png)
+![子问题图](\home\vincent\Typora\assets\子问题图.png)
 
 子问题图顶点的标号给出了子问题的规模。有向边 $(x,y)$ 表示当求子问题 $x$ 时需要子问题 $y$ 的解。
 
@@ -290,7 +290,7 @@ $$
 
 ​	贪心算法不同于动态规划那样自底向上进行计算，相反可以自顶向下计算：**做出一个选择，然后求解剩下的那个子问题，而不是自底向上地求解出很多子问题，然后做出选择。**
 
-![1561123847263](E:\Vincent\notebook\Typora\assets\1561123847263.png)
+![1561123847263](\home\vincent\Typora\assets\1561123847263.png)
 
 #### 递归贪心算法
 
@@ -362,21 +362,280 @@ GREEDY-ACTIVITY-SELECTOR($s,f$)
 
 - **分数背包问题（fractional knapsack problem）**：设定与0-1背包问题相同，但对于一个商品，可以选择拿走其一部分。
 
-  两个背包问题都具有最优子结构，但可以使用贪心策略求解分数背包问题，而不能求解0-1背包问题。
+  ​		两个背包问题都具有最优子结构，但可以使用贪心策略求解分数背包问题，而不能求解0-1背包问题。
 
-  对于分数背包问题，首先计算每个商品的每磅价值 $v_i / w_i$ 。遵循贪心策略，应尽量多地拿走每磅价值最高的商品。如果该商品已全部拿走而背包尚未满，继续尽量多地拿走每磅价值第二高的商品，以此类推，直至达到重量上限 $W$。因此，通过将该商品按每磅价值排序，贪心算法的运行时间为 $O(n\lg n)$。
+  ​		对于分数背包问题，首先计算每个商品的每磅价值 $v_i / w_i$ 。遵循贪心策略，应尽量多地拿走每磅价值最高的商品。如果该商品已全部拿走而背包尚未满，继续尽量多地拿走每磅价值第二高的商品，以此类推，直至达到重量上限 $W$。因此，通过将该商品按每磅价值排序，贪心算法的运行时间为 $O(n\lg n)$。
   
-  而对于0-1背包问题，如下实例。此例包含3个商品和一个能容纳50磅重量的背包。可计算出商品1每磅价值为6美元，高于商品2的每磅价值（5美元）和商品3的每磅价值（4美元）。由上述贪心策略会首先拿走商品1，而如图（b）所示，最优解应该拿走商品2和商品3，而留下商品1。
+  ​		而对于0-1背包问题，如下实例。此例包含3个商品和一个能容纳50磅重量的背包。可计算出商品1每磅价值为6美元，高于商品2的每磅价值（5美元）和商品3的每磅价值（4美元）。由上述贪心策略会首先拿走商品1，而如图（b）所示，最优解应该拿走商品2和商品3，而留下商品1。
   
-  然而如图（c）所示，对于分数背包问题，上述贪心策略是可以生成最优解的。拿走商品1的策略对0-1背包问题无效是因为背包无法被装满，空闲空间降低了方案的有效每磅价值。在0-1背包问题中，当考虑是否将一个商品装入背包时，必须比较包含此商品的子问题的解与不包含它的子问题的解，才能做出选择。这会导致大量的重叠子问题——动态规划的标识。
+  ​		然而如图（c）所示，对于分数背包问题，上述贪心策略是可以生成最优解的。拿走商品1的策略对0-1背包问题无效是因为背包无法被装满，空闲空间降低了方案的有效每磅价值。在0-1背包问题中，当考虑是否将一个商品装入背包时，必须比较包含此商品的子问题的解与不包含它的子问题的解，才能做出选择。这会导致大量的重叠子问题——动态规划的标识。
   
-  ![1561123775163](E:\Vincent\notebook\Typora\assets\1561123775163.png)
+  ![1561123775163](\home\vincent\Typora\assets\1561123775163.png)
 
 #### 贪心算法其他典型应用
 
 - 哈夫曼编码
 - 最小生成树算法
 - 单源最短路径的Dijkstra算法
+- 最小生成树的Prim算法与Kruskal算法
+
+## 回溯法
+
+回溯法在包含问题的所有解的解空间树中，按照**深度优先**的策略，从根节点出发搜索解空间树。算法搜索至解空间树的任一节点时，总是先判断该节点是否肯定不包含问题的解。如果是，则跳过对以该节点为根的子树的系统搜索，逐层向其祖先节点回溯。否则，进入该子树，继续按深度优先的策略进行搜索。回溯法在用来求解问题的所有解时，要回溯到根，且根节点的所有子树都已被搜索完毕才结束。
+
+### 问题的解空间
+
+在应用回溯法解问题时，首先应明确定义问题的解空间。问题的解空间至少包含问题的一个（最优）解。两种典型的解空间树为子集树和排列树。
+
+子集树：当所给的问题是从 $n$ 个元素的集合 $S$ 中找出满足某种性质的子集时，相应的解空间树为子集树。这类子集树通常有 $2^n$ 个叶节点，其节点总个数为 $2^{n+1}-1$。遍历子集树的任何算法均需 $\Omega(2^n)$ 的计算时间。
+
+##### 0-1​背包问题
+
+$0-1$背包问题的解空间树即为一个子集树。对于 $n=3$ 时的 $0-1$ 背包问题，其解空间可用一棵完全二叉树表示。
+
+![二叉树](/home/vincent/Typora/Algorithm_learning.assets/二叉树.png)
+
+​														子集树（$0-1$背包问题）的解空间树
+
+排列树：当所给的问题是确定 $n$ 元素满足某种性质的排列时，相应的解空间树称为排列树。排列树通常有 $n!$ 个叶节点。因此遍历排列树需要 $\Omega(n!)$ 的计算时间。
+
+旅行售货商问题的解空间树为一个排列树。
+
+##### 旅行售货商问题（TSP）
+
+某售货员要到若干个城市去推销商品，已知各城市之间的路程（或旅费）。他要选定一条从驻地出发，经过每个城市一遍，最后回到驻地的路线，使总的路程（或总旅费）最小。(NP完全问题)
+
+设 $G=(V,E)$ 是一个带权图。图中各边的费用（权）为一正数。图中的一条周游路线是包括 $V$ 中每个顶点在内的一条回路。一条周游路线的费用就是这条路线上所有边的费用之和。所谓旅行售货员问题就是要在图 $G$ 中找出一条最小费用的周游路线。
+
+![TSP](/home/vincent/Typora/Algorithm_learning.assets/TSP-1566293295164.jpeg)
+
+​																			4顶点带权图
+
+该问题的排列树为：
+
+![二叉树](/home/vincent/Typora/Algorithm_learning.assets/二叉树-1566352722464.png)
+
+​																	    排列树（TSP问题）的解空间树
+
+### 回溯法的基本思想
+
+确定了解空间的组织结构以后，回溯法就从根节点（开始节点）出发，以深度优先的方式搜索整个解空间。这个开始节点就成为一个活节点，同时也成为当前节点的扩展节点。在当前的扩展节点处，搜索向纵深方法移至一个新节点。这个新节点就成为一个新的活节点，并成为当前扩展节点。若在当前扩展节点处不能向纵深方向移动，则当前的扩展节点就成为死节点。此时，应往回移动（回溯）至最近的一个活节点处，并使这个活节点成为当前节点的扩展节点。回溯法即以这种工作方式递归地在解空间中搜索，直至找到所要求的解或解空间中已无活节点时为止。
+
+在用回溯法搜索解空间树时，通常采用两种策略来避免无效搜索，提高回溯法的搜索效率。其一是用约束函数在扩展节点处剪去不满足约束的子树；其二是用限界函数剪去不能得到最优解的子树。这两类函数统称为剪枝函数。
+
+运用回溯法解题通常包含一下三个步骤：
+
+1. 针对所给问题，定义问题的解空间。
+2. 确定易于搜索的解空间结构。
+3. 以深度优先的方式搜索解空间，并且在搜索过程中用剪枝函数避免无效搜索。
+
+### 递归回溯
+
+回溯法是对解空间的深度优先搜索，一般情况下可用递归函数来实现， 递归思路简单，设计容易，但效率低，代码范式如下：
+
+```C
+void Backtrack(int t){
+    if (t > n) Output(x);  	// 叶子节点，输出结果，x为可行解
+    else{
+        for (int i = f(n, t); i <= g(n, t); i++){ 	// 遍历当前节点为搜索过的子树 f(n, t) , g(n, t)为起止编号
+            x[t] = h(i);	//每个子节点的值赋值给x
+            //满足约束条件和限界条件
+            if (Constaint(t) && Bount(t)) 
+                Backtrack(t + 1); 	//递归下一层
+        }
+    }
+}
+```
+
+### 迭代回溯
+
+若采用树的非递归深度优先遍历算法，也可将回溯法表示为一个迭代过程。 迭代算法设计相对复杂，但效率高。代码范式如下：
+
+```C
+void IterativeBacktrack(void){
+    int t = 1;
+    while (t > 0){
+        if (f(n, t) <= g(n, t)){	//当前节点的存在未搜索子节点
+            for (int i = f(n, t); i <= g(n, t); i++){	//遍历当前节点的未搜索子节点
+                x[t] = h(i);	//每个子节点的值赋值给x
+                if (Constaint(t) && Bound(t))	//满足约束条件和限界条件
+                    if (Solution(t)) Output(x);		//Solution表示在节点t处得到了一个解，输出
+                    else t++;	//没有得到解，继续向下搜索
+            }
+        }
+        else t--;	//不存在未搜索子节点，返回上一层
+    }
+}
+```
+
+用回溯法解题的一个显著特征是问题的解空间是在搜索过程中动态产生的。在任何时刻，算法只保存从根节点到当前扩展节点的路径。若解空间树中从根节点到叶节点的最长路径为 $h(n)$，则回溯法所需的计算空间通常为 $O(h(n))$。而显式地存储整个解空间则需要 $O(2^{h(n)})$ 或 $O(h(n)!)$ 的空间。
+
+### 子集树与排列树
+
+回溯法搜索子集树的算法范式如下：
+
+```C
+void BackTrack(int t){
+    if (t > n) Output(x);
+    else{
+        for (int i = 0; i <= 1; i++){ 	// 子集树为一个二叉树
+            x[t] = i;
+            if (Constraint(t) && Bound(t)) Backtrack(t+1);
+        }
+    }
+}
+```
+
+回溯法搜索排列树的算法范式如下：
+
+```C
+void BackTrack(int t){
+    if (t > n) Output(x);
+    else{
+        for (int i = t; i <= n; i++){	// 排列树为n个元素的排列
+            Swap(x[t], x[i]);
+            if (Constraint(t) && Bount(t)) Backtrack(t + 1);
+            Swap(x[t], x[i]);
+        }
+    }
+}
+```
+
+在调用 Backtrack(1) 执行回溯搜索之前，先将变量数组 x 初始化为单位排列（1,2,3,....,n）。
+
+### 装载问题
+
+#### 问题描述
+
+有一批共 $n$ 个集装箱要装上 $2$ 艘载重量分别为 $c_1$ 和 $c_2$ 的轮船，其中集装箱 $i$ 的重量为 $w_i$，且 $\sum_{i=1}^n w_i \le c_1 + c_2$。问是否有一个合理的装载方案可将这 $n$ 个集装箱装上这 $2$ 艘轮船。若有，找出一种装载方案。
+
+分析：当 $\sum_{i=1}^n w_i=c_1+c_2$ 时，装载问题等价于子集和问题。当 $c_1=c_2$ 且 $\sum_{i=1}^n w_i=2c_1$，则装载问题等价于划分问题。即使限制 $w_i,i=1,...,n$  为整数，$c_1$ 和 $c_2$ 也是整数。子集和问题和划分问题都是NP完全问题。由此可知装载问题也是NP完全问题。容易证明，若有一个给定的装载问题的有解，则采用下面的策略可以得到一个最优装载方案。
+
+1. 首先将第一艘轮船尽可能装满。
+2. 然后将剩余的集装箱装到第二艘轮船上。
+
+于是装载问题可等价于以下特殊的 $0-1$ 背包问题：
+$$
+\max\sum_{i=1}^n w_i x_i \\
+\sum_{i=1}^n w_i x_i\le c_1 \\
+x \in \{0,1\},1 \le i \le n
+$$
+
+#### 算法设计
+
+装载问题的解空间树为子集树，java代码如下：
+
+```java
+public class Loading {
+    private int n;		// 集装箱数
+    private int[] w;		// 集装箱重量数组
+    private int c, cw, bestw;	// 分别为第一艘轮船的载重量，当前载重量和当前最优载重量
+    private int r; 		// 剩余集装箱重量
+    private int x[], bestx[]; 	// 当前解和当前最优解
+
+    private void Backtrack (int i){
+        // 搜索第 i 层节点
+        if (i >= n) {		// 到达叶节点
+            if (cw > bestw) {
+                for (int j = 0; j < n; ++j)
+                    bestx[j] = x[j];
+                bestw = cw;
+            }
+            return;
+        }
+        // 搜索子树
+        r -= w[i];
+        // 搜索左子树
+        if (cw + w[i] <= c) {
+            x[i] = 1;
+            cw += w[i];
+            Backtrack(i+1);
+            cw -= w[i];
+        }
+        //	搜索右子树
+        if (cw + r > bestw)  	// 上限函数，剪枝 若 cw + r <= w 则不向下搜索
+            x[i] = 0;
+        Backtrack(i+1);		
+        r += w[i];
+    }
+
+    public static int maxLoading(int w[], int c, int n, int bestx[]) {
+        // 返回最优载重量
+        Loading X = new Loading();
+        // 初始化X
+        X.w = w;
+        X.c = c;
+        X.n = n;
+        X.x = new int[n];
+        X.bestx = bestx;
+        X.bestw = 0;
+        X.cw = 0;
+        // 初始化 r
+        X.r = 0;
+        for (int i = 0; i < n; ++i)
+            X.r += w[i];
+        // 计算最优载重量
+        X.Backtrack(0);
+        return X.bestw;
+    }
+
+    public static int IterativeMaxLoading(int w[], int c, int n, int bestx[]) {
+        /**
+		 * 迭代回溯法
+		 * 返回最优载重量及其相应解
+		 * **/
+        // 初始化根节点
+        int i = 0;	// 当前层
+        int x[] = new int[n];
+        int bestw = 0, cw = 0, r = 0;
+        for (int j = 0; j < n; ++j)
+            r += w[j];
+        // 搜索子树
+        while(true) {
+            while(i < n && cw + w[i] <= c) {
+                // 进入左子树
+                r -= w[i];
+                cw += w[i];
+                x[i] = 1;
+                i++;
+            }
+            if (i >= n) {	// 到达叶节点
+                for (int j = 0; j < n; ++j)
+                    bestx[j] = x[j];
+                bestw = cw;
+            }
+            else {		// 进入右子树
+                r -= w[i];
+                x[i] = 0;
+                i++;
+            }
+            while (cw + r <= bestw) {
+                // 剪枝回溯
+                i--;
+                while(i > 0 && x[i] == 0) {
+                    // 从右子树返回
+                    r += w[i];
+                    i--;
+                }
+                if (i == 0)
+                    return bestw;
+                // 进入右子树
+                x[i] = 0;
+                cw -= w[i];
+                i++;
+            }
+        }
+    }
+}
+```
+
+### 批处理作业调度
+
+#### 问题描述
+
+给定 $n$ 个作业的集合 $J=(J_1,J_2,...,J_n)$ 。每一个作业 $J$ 都有两项任务要分别在 2 台机器上完成。每一个作业必须先由机器1处理，然后再由机器2处理。作业 $J_i$ 需要机器 $j$ 的处理时间为 $t_{ji},i=1,2,...,n;j=1,2$。对于一个确定的作业调度，设 $F_{ji}$ 是作业 $i$ 在机器 $j$ 上完成处理的时间。则所有作业在机器2上完成处理的时间和 $f=\sum_{i=1}^n F_{2i}$ 称为该作业调度的完成时间和。要求制定一个最佳作业调度方案，使其完成时间和达到最小。
+
+#### 算法设计
 
 ## 排序
 
@@ -530,43 +789,41 @@ MERGE($A,p,q,r $)
 Java代码实现如下：
 
 ```java
-	public static void mergeSort(int[] A, int p, int r) {
-		if (p < r) {
-			int q = (p + r) / 2;
-			mergeSort(A, p, q);
-			mergeSort(A, q+1, r);
-			merge(A,p,q,r);
-		}
-	}
+public void mergeSort(int[] A, int p, int r) {
+    if (p < r) {
+        int q = (p + r) / 2;
+        mergeSort(A, p, q);
+        mergeSort(A, q+1, r);
+        merge(A,p,q,r);
+    }
+}
 
-	public static void merge(int[] A, int p, int q, int r) {
-		int n1 = q - p + 1;
-		int n2 = r - q;
-		int[] L = new int[n1+1];
-		int[] R = new int[n2+1];
-		
-		for (int i = 0; i < n1; i++)
-			L[i] = A[p + i];
-		for (int i = 0; i < n2; i++)
-			R[i] = A[q + i + 1];
-			
-		
-		L[n1] = Integer.MAX_VALUE;
-		R[n2] = Integer.MAX_VALUE;
-		
-		int i = 0, j = 0;
-		
-		for (int k = p; k <= r; k++) {
-			if (L[i] < R[j]) {
-				A[k] = L[i];
-				i++;
-			}
-			else {
-				A[k] = R[j];
-				j++;
-			}
-		}
-	}
+public void merge(int[] A, int p, int q, int r) {
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    int[] L = new int[n1+1];
+    int[] R = new int[n2+1];
+
+    for (int i = 0; i < n1; i++)
+        L[i] = A[p + i];
+    for (int i = 0; i < n2; i++)
+        R[i] = A[q + i + 1];
+
+    L[n1] = Integer.MAX_VALUE;
+    R[n2] = Integer.MAX_VALUE;
+
+    int i = 0, j = 0;
+    for (int k = p; k <= r; k++) {
+        if (L[i] < R[j]) {
+            A[k] = L[i];
+            i++;
+        }
+        else {
+            A[k] = R[j];
+            j++;
+        }
+    }
+}
 ```
 
 
@@ -630,33 +887,35 @@ PARTITION($A,p,r $)
 3. 若 $j\leq k < r$，无限制
 4. 若  $k=r$，则 $A[k]=x$。
 
-![格子](E:\Vincent\notebook\Typora\assets\格子.jpg)
+![格子](/home/vincent/Typora/assets/格子.jpg)
 
-python代码如下：
+Java代码如下：
 
-```python
-def quick_sort(A,p,r):
-    if p<r:
-        q = partition(A,p,r)
-        quick_sort(A,p,q-1)
-        quick_sort(A,q+1,r)
+```java
+// 快速排序
+public void quickSort(int[] A, int p, int r) {
+    if (p < r) {
+        int q = partition(A, p, r);
+        quickSort(A, p, q-1);
+        quickSort(A, q+1, r);
+    }
+}
 
-def partition(A,p,r):
-    x = A[r]
-    i = p-1
-    for j in range(p,r):
-        if A[j] <= x:
-            i = i+1
-            A[i],A[j] = A[j],A[i]
-    A[i+1],A[r] = A[r],A[i+1]
-    print(A)
-    return i+1
+private int partition(int[] A, int p, int r) {
+    int x = A[r], i = p -1;
+    for (int j = p; j <r; ++j) {
+        if (x >= A[j])
+        swap(A, ++i, j);	
+    }
+    swap(A, ++i, r);
+    return i;
+}
 
-if __name__ == "__main__":
-    A = [2,8,7,1,3,5,6,4]
-    p = 0
-    r = len(A)-1
-    quick_sort(A,p,r)
+private void swap(int A[], int index1, int index2) {
+    int tmp = A[index1];
+    A[index1] = A[index2];
+    A[index2] = tmp;
+}
 ##########################
 OUTPUT:
 [2, 1, 3, 4, 7, 5, 6, 8]
@@ -703,13 +962,11 @@ RANDOMIZED-QUICKSORT($A, p, r $)
 
 
 
-​         									![二叉树](E:\Vincent\notebook\Typora\assets\二叉树.png)													     	        （a）二叉树
+​         									![二叉树](\home\vincent\Typora\assets\二叉树.png)													     	        （a）二叉树
 
-![方格取数](E:\Vincent\notebook\Typora\assets\方格取数.jpg)
+![方格取数](\home\vincent\Typora\assets\方格取数.jpg)      													            （b）(二叉)堆
 
-​																			 （b）(二叉)堆
-
-​			表示堆的数组 $A$ 包括两个属性：$A.length$ (通常)给出数组元素的个数，$A.heap$-$size$ 表示有多少个堆元素存储在该数组中。给定一个结点的下标 $i$，其父结点、左孩子与右孩子的下标可知：
+表示堆的数组 $A$ 包括两个属性：$A.length$ (通常)给出数组元素的个数，$A.heap$-$size$ 表示有多少个堆元素存储在该数组中。给定一个结点的下标 $i$，其父结点、左孩子与右孩子的下标可知：
 
 ---
 
@@ -784,7 +1041,7 @@ RIGHT($i$)
 
 3. **堆排序算法**
 
-   ​	堆排序算法先利用 BUILD-MAX-HEAP将输入数组 $A[1..n]$ 建成最大堆，其中 $n=length$。再通过将数组中的最大元素（根结点$A[1]$）与 $A[n]$ 进行互换，并且每次从堆中去掉结点 $n$，剩余结点中，原来根的结点仍然是最大堆，而新的根结点可能会违背最大堆的性质。通过不断调用 MAX-HEAPIFY($A,1$)，从而在 $A[1..n-1]$ 上构造一个新的最大堆。
+   ​		堆排序算法先利用 BUILD-MAX-HEAP将输入数组 $A[1..n]$ 建成最大堆，其中 $n=length$。再通过将数组中的最大元素（根结点$A[1]$）与 $A[n]$ 进行互换，并且每次从堆中去掉结点 $n$，剩余结点中，原来根的结点仍然是最大堆，而新的根结点可能会违背最大堆的性质。通过不断调用 MAX-HEAPIFY($A,1$)，从而在 $A[1..n-1]$ 上构造一个新的最大堆。
 
    ---
 
@@ -816,7 +1073,7 @@ RIGHT($i$)
    
    # 维护堆的性质
    def max_heapify(A,i,heap_size):
-     			j = i + 1
+     	  j = i + 1
            l = left(j)-1
            r = right(j)-1
            
@@ -923,7 +1180,7 @@ COUNTING-SORT($A,B,k$)
 
 ​	在第5行完成后，$C[i]$ 中保存的是等于 $i$ 的元素的个数，其中 $i=0,1,...,k$。第7~8行通过加总计算确定对每一个 $i=0,1,...,k$，有多少输入元素是小于或等于 $i$ 的。
 
-![格子](E:\Vincent\notebook\Typora\assets\格子.png)
+![格子](\home\vincent\Typora\assets\格子.png)
 
 ​	计数排序是**稳定排序**：具有相同值的元素在输出数组中的相对次序与它们在输入数组中的相对次序相同。计数排序经常被用作基数排序的子过程。
 

@@ -1,3 +1,4 @@
+package offerTest;
 
 public class Duplicate_3_1 {
 

@@ -6,14 +6,13 @@
 using namespace std;
 
 int main(void){
-	LinkList pHead = nullptr;
-	int n = 10;
-	pHead = creatList_Order(n);
-
-	DeleteDuplication(&pHead);
-	PrintList(pHead);
+	char *a, *b;
+	cin >> a >> b;
+	cout << *a << " " << *b;
 
 }
+
+
 
 
 

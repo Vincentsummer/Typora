@@ -218,7 +218,7 @@ $$
 
 上式中分号前的 $x$ 表示随机变量，分号后的 $\boldsymbol \theta$ 表示参数。
 
-极大似然估计通过最大化当前训练样本 $\{x\}_{i=1}^n$ 的概率来确定 $\boldsymbol \theta$ 值。因此在指定的参数$\boldsymbol \theta$ 下产生训练样本  $\{x\}_{i=1}^n$ 的概率可以看作是参数 $\boldsymbol \theta$ 的函数，称为**似然函数（likelihood）**,用 $L(\theta)$ 表示。在独立同分布（IID）的假设下，可表示为：
+极大似然估计通过最大化当前训练样本 $\{x\}_{i=1}^n$ 的概率来确定 $\boldsymbol \theta$ 值。因此在指定的参数 $\boldsymbol \theta$ 下产生训练样本  $\{x\}_{i=1}^n$ 的概率可以看作是参数 $\boldsymbol \theta$ 的函数，称为**似然函数（likelihood）**, 用 $L(\theta)$ 表示。在**独立同分布**（IID）的假设下，可表示为：
 $$
 L(\theta)=\prod_{i=1}^nq(\boldsymbol x_i;\boldsymbol \theta)
 $$
@@ -253,13 +253,13 @@ $$
 
 #### 贝叶斯预测分布
 
-​	在MLE框架下，将参数模型 $q(\boldsymbol x;\boldsymbol \theta)$ 中的参数 $ \boldsymbol \theta$ 视为定量。在贝叶斯框架下，$\boldsymbol \theta$ 被当作随机变量，参数模型被认为是一个条件概率 $q(\boldsymbol x|\boldsymbol \theta)$。
+在MLE框架下，将参数模型 $q(\boldsymbol x;\boldsymbol \theta)$ 中的参数 $ \boldsymbol \theta$ 视为定量。在贝叶斯框架下，$\boldsymbol \theta$ 被当作随机变量，参数模型被认为是一个条件概率 $q(\boldsymbol x|\boldsymbol \theta)$。
 
 如果 $\boldsymbol \theta$ 被认为是一个随机变量，对于训练样本 $\mathcal D$，可以确定下列概率：
 
 - $p(\boldsymbol\theta)$： 在观察训练样本 $\mathcal D$ 之前参数 $\boldsymbol\theta$ 的**先验概率**。
 - $p(\boldsymbol\theta|\mathcal D)$：在给定训练样本 $\mathcal D$ 下参数 $\boldsymbol\theta$ 的**后验概率**。
-- $p(\mathcal D|\boldsymbol\theta)$：表示**可能性**，它和MLE中的 在数值上相同，在贝叶斯框架里，它被认为是一个条件概率：
+- $p(\mathcal D|\boldsymbol\theta)$：表示**可能性**，它和MLE中的概率在数值上相同，在贝叶斯框架里，它被认为是一个条件概率：
 
 $$
 p(\mathcal D|\boldsymbol\theta)=\prod_{i=1}^nq(\boldsymbol x_i|\boldsymbol \theta)
@@ -267,7 +267,7 @@ $$
 
 
 
-- $p(\mathcal D，\boldsymbol \theta)$：**联合概率**，可表示成 $p(\mathcal D，\boldsymbol \theta)p=(\mathcal D|\boldsymbol \theta)p(\boldsymbol\theta)$。
+- $p(\mathcal D，\boldsymbol \theta)$：**联合概率**，可表示成 $p(\mathcal D，\boldsymbol \theta)=p(\mathcal D|\boldsymbol \theta)p(\boldsymbol\theta)$。
 
   它在 $\boldsymbol \theta$ 的边缘化可以得到：
   $$
@@ -321,19 +321,19 @@ $$
 
 ### 贝叶斯估计
 
-​	贝叶斯框架将参数模型 $q(\boldsymbol x|\boldsymbol \theta) $ 中的 $\boldsymbol \theta $ 看作随机变量，**贝叶斯估计的目的是结合参数的先验知识，使得估计出来的参数能令贝叶斯风险达到最小。**
+贝叶斯框架将参数模型 $q(\boldsymbol x|\boldsymbol \theta) $ 中的 $\boldsymbol \theta $ 看作随机变量，**贝叶斯估计的目的是结合参数的先验知识，使得估计出来的参数能令贝叶斯风险达到最小。**
 
-​	令损失函数为 $L(\hat{\boldsymbol \theta},\boldsymbol \theta)$，则风险函数为损失函数 $L(\hat{\boldsymbol \theta},\boldsymbol \theta)$ 关于 $\hat{\boldsymbol \theta}$ 的期望：
+令损失函数为 $L(\hat{\boldsymbol \theta},\boldsymbol \theta)$，则风险函数为损失函数 $L(\hat{\boldsymbol \theta},\boldsymbol \theta)$ 关于 $\hat{\boldsymbol \theta}$ 的期望：
 $$
 R(\hat{\boldsymbol \theta},\boldsymbol \theta)=E_{\hat{\theta}}[L(\hat{\boldsymbol \theta},\boldsymbol \theta)]=\int L(\hat{\boldsymbol \theta},\boldsymbol \theta) q(\boldsymbol x|\boldsymbol \theta) d\boldsymbol x
 $$
-​	因为 $\hat{\boldsymbol\theta}$ 是 $\boldsymbol x$ 的函数，所以对 $\hat{\boldsymbol\theta}$ 求期望就是在 $\boldsymbol x$ 上求期望，进而转换为对 $\boldsymbol x$ 求积分。
+因为 $\hat{\boldsymbol\theta}$ 是 $\boldsymbol x$ 的函数，所以对 $\hat{\boldsymbol\theta}$ 求期望就是在 $\boldsymbol x$ 上求期望，进而转换为对 $\boldsymbol x$ 求积分。
 
-​	上式中的风险函数求出了一个具体的值，但很多情况下求出的风险是一个函数表达式，而不是值。如果求出来的风险是一个值，则可以不用贝叶斯估计。贝叶斯估计通常用于风险不可以直接比较的情况。
+上式中的风险函数求出了一个具体的值，但很多情况下求出的风险是一个函数表达式，而不是值。如果求出来的风险是一个值，则可以不用贝叶斯估计。贝叶斯估计通常用于风险不可以直接比较的情况。
 
 #### 贝叶斯风险
 
-​	由于 $\boldsymbol \theta $ 为随机变量，满足一个先验分布 $\pi(\boldsymbol\theta)$，则风险函数可以看作是 $\boldsymbol\theta$ 的函数。为了使风险函数的求解不依赖于 $\boldsymbol\theta$ ，引入了贝叶斯风险：**贝叶斯风险是风险函数在 $\boldsymbol\theta$ 上的期望。**
+由于 $\boldsymbol \theta $ 为随机变量，满足一个先验分布 $\pi(\boldsymbol\theta)$，则风险函数可以看作是 $\boldsymbol\theta$ 的函数。为了使风险函数的求解不依赖于 $\boldsymbol\theta$ ，引入了贝叶斯风险：**贝叶斯风险是风险函数在 $\boldsymbol\theta$ 上的期望。**
 $$
 B(\boldsymbol\theta)=E_{\theta}[R(\hat{\boldsymbol \theta},\boldsymbol \theta)]=\int R(\hat{\boldsymbol \theta},\boldsymbol \theta)\pi(\boldsymbol\theta)d\theta
 $$
@@ -356,7 +356,7 @@ B(\boldsymbol\theta) & =\int R(\hat{\boldsymbol \theta},\boldsymbol \theta)\pi(\
 & = \int_x \left[ \int_{\theta} L(\hat{\boldsymbol \theta},\boldsymbol \theta) \pi(\boldsymbol\theta|\boldsymbol x) d\boldsymbol\theta \right] \ p(\boldsymbol x) d\boldsymbol x
 \end{align}
 $$
-​	上式中先对 $\boldsymbol \theta$ 积分然后对 $\boldsymbol x$ 积分，$\boldsymbol x$ 并不是此处需要关心的，因此只需使得中括号中的积分最小。而中括号中的积分是一个期望：在 $\boldsymbol \theta$ 的后验分布 $\pi(\boldsymbol\theta|\boldsymbol x)$ 上求损失函数$L(\hat{\boldsymbol \theta},\boldsymbol \theta)$ 期望。
+上式中先对 $\boldsymbol \theta$ 积分然后对 $\boldsymbol x$ 积分，$\boldsymbol x$ 并不是此处需要关心的，因此只需使得中括号中的积分最小。而中括号中的积分是一个期望：在 $\boldsymbol \theta$ 的后验分布 $\pi(\boldsymbol\theta|\boldsymbol x)$ 上求损失函数$L(\hat{\boldsymbol \theta},\boldsymbol \theta)$ 期望。
 $$
 \int_{\theta} L(\hat{\boldsymbol \theta},\boldsymbol \theta) \pi(\boldsymbol\theta|\boldsymbol x) d\boldsymbol\theta=E_\pi L(\hat{\boldsymbol \theta},\boldsymbol \theta)
 $$
@@ -392,18 +392,18 @@ $$
 
 #### 最大后验概率规则
 
-​	在确定一个给定样本属于哪个类时，会选择概率最大的那个类，即最大化类后验-概率 $p(y|\boldsymbol x)$ (样本 $\boldsymbol x $ 分类到 $\hat{y} $ 的概率)的类。其中
+在确定一个给定样本属于哪个类时，会选择概率最大的那个类，即最大化类后验-概率 $p(y|\boldsymbol x)$ (样本 $\boldsymbol x $ 分类到 $\hat{y} $ 的概率)的类。其中
 $$
 \hat{y}=\arg \max_y p(y|\boldsymbol x)
 $$
-​	上述规则称之为MAP规则。其等价于将决策域做如下设置：
+上述规则称之为MAP规则。其等价于将决策域做如下设置：
 $$
 \mathcal X_y = \{\boldsymbol x|p(y|\boldsymbol x) \ge p(y^\prime|\boldsymbol x)\ 且 \ y^\prime \ne y \}
 $$
 
 #### 最小误分类率准则
 
-​	该准则选择具有分类错误率最小的类。设 $p_e(y \to y^\prime)$ 为类 $y$ 中的样本被错误分类到类 $y^\prime$ 中的概率，其等效于类 $y$ 中的样本落入决策区域 $\mathcal X_{ y^\prime}$ 的概率，即
+该准则选择具有分类错误率最小的类。设 $p_e(y \to y^\prime)$ 为类 $y$ 中的样本被错误分类到类 $y^\prime$ 中的概率，其等效于类 $y$ 中的样本落入决策区域 $\mathcal X_{ y^\prime}$ 的概率，即
 $$
 p_e(y \to y^\prime)=\int_{x \in \mathcal X_{y^\prime}}p(\boldsymbol x|y)d\boldsymbol x
 $$
@@ -427,15 +427,15 @@ p_e &= \sum_{y=1}^c p_e(y)p(y) \\
 &= 1 - \sum_{y=1}^c\int_{x \in \mathcal X_{y}}p(y|\boldsymbol x)p(\boldsymbol x) d\boldsymbol x
 \end{align}
 $$
-由上式可知，使 $p_e$ 最小化等价于确定一个决策域 $\{\mathcal X_y\}_{y=1}^c$ 使得 $\sum_{y=1}^c\int_{x \in \mathcal X_{y}}p(y|\boldsymbol x)p(\boldsymbol x) d\boldsymbol x$ 最大化。这可以通过将 $\mathcal X_y$ 设置为所有的 $\boldsymbol x$ 的集合来实现。则当 $y^\prime \ne y$ 时，$p(y|\boldsymbol x) \ge p(y^\prime|\boldsymbol x)$。这等效于类后验概率最小化的过程。
+由上式可知，使 $p_e$ 最小化等价于确定一个决策域 $\{\mathcal X_y\}_{y=1}^c$ 使得 $\sum_{y=1}^c\int_{x \in \mathcal X_{y}}p(y|\boldsymbol x)p(\boldsymbol x) d\boldsymbol x$ 最大化。这可以通过将 $\mathcal X_y$ 设置为所有的 $\boldsymbol x$ 的集合来实现。则当 $y^\prime \ne y$ 时，$p(y|\boldsymbol x) \ge p(y^\prime|\boldsymbol x)$。这等效于类后验概率最大化的过程。
 
 #### 贝叶斯决策规则
 
-​	贝叶斯决策论考虑如何基于相关概率和误判损失来选择最优的类别标记。用 $\lambda_{y,y^\prime}$ 表示类 $y$ 中的样本被误分到类 $y^\prime$ 中的损失。由于样本 $\boldsymbol x$ 属于类 $y$ 的概率为 $p(y|\boldsymbol x)$ ,因此样本 $\boldsymbol x$ 属于类 $y^\prime$ 的损失为
+贝叶斯决策论考虑如何基于相关概率和误判损失来选择最优的类别标记。用 $\lambda_{y,y^\prime}$ 表示类 $y$ 中的样本被误分到类 $y^\prime$ 中的损失。由于样本 $\boldsymbol x$ 属于类 $y$ 的概率为 $p(y|\boldsymbol x)$ ,因此样本 $\boldsymbol x$ 属于类 $y^\prime$ 的损失为
 $$
 R(y^\prime|\boldsymbol x)=\sum_{y=1}^{c}\lambda_{y,y^\prime}p(y|\boldsymbol x)
 $$
-​	上式称之为样本 $\boldsymbol x$ 的*条件风险*。
+上式称之为样本 $\boldsymbol x$ 的*条件风险*。是指基于后验概率 $P(y|\boldsymbol x)$ 可获得将样本 $\boldsymbol x$ 分类为 $y^\prime $ 所产生的期望损失。（其实就是所有判别损失的加权和，而这个权就是样本判为 $y$ 类的概率，样本本来应该含有 $P(y|\boldsymbol x)$ 的概率判为 $y$ 类，但是却判为了 $y^\prime$ 类，这就造成了错判损失，而将所有的错判损失与正确判断的概率的乘积相加，就能得到样本错判为 $y^\prime $ 类的平均损失，即条件风险。）
 
 ​	样本 $\boldsymbol x$ 应该被分到最小条件风险的类中，即
 $$
@@ -443,7 +443,7 @@ $$
 $$
 ​	这等价于将决策 $\{\mathcal X_y\}_{y=1}^c$ 确定为
 $$
-\mathcal X_y=\{\boldsymbol x|R(y|\boldsymbol x) \le R(y^\prime|\boldsymbol x) \ 对所有\ y^\prime \ne y\}
+\mathcal X_y=\{\boldsymbol x|R(y|\boldsymbol x) \le R(y^\prime|\boldsymbol x) \ for \ all\ y^\prime \ne y\}
 $$
 所有的 $\boldsymbol x$ 的条件风险的期望，被称为*总风险*：
 $$
@@ -463,7 +463,7 @@ $$
 $$
 R(y|\boldsymbol x)=\lambda\sum_{y^\prime \ne y} p(y^\prime|\boldsymbol x)=\lambda \left[ \sum_{y^\prime=1}^cp(y^\prime|\boldsymbol x)-p(y|\boldsymbol x)\right]=\lambda(1-p(y|\boldsymbol x))
 $$
-上式最小化等价于类先验概率 $p(y|\boldsymbol x)$ 的最大化。因此，当损失 $\lambda_{y,y^\prime}$ 由上式（49）给定时，贝叶斯决策规则会退化成MAP规则（同样也是最小无分类率规则）。
+上式最小化等价于后验概率 $p(y|\boldsymbol x)$ 的最大化。因此，当损失 $\lambda_{y,y^\prime}$ 由上式（49）给定时，贝叶斯决策规则会退化成MAP规则（同样也是最小误分类率规则）。
 
 ### 生成式方法和判别式方法
 
@@ -485,7 +485,7 @@ $$
 
 ### 朴素贝叶斯分类器
 
-​	基于贝叶斯公式来估计后验概率 $p(y|\boldsymbol x)$ 的主要困难在于：类-条件概率 $p(\boldsymbol x|y)$ 是样本所有属性上的联合概率，难以从有限的样本中直接估计而得。为朴素贝叶斯分类器采取了“属性条件独立假设”：对已知类别，假设所有属性相互独立。则有
+基于贝叶斯公式来估计后验概率 $p(y|\boldsymbol x)$ 的主要困难在于：类-条件概率 $p(\boldsymbol x|y)$ 是样本所有属性上的联合概率，难以从有限的样本中直接估计而得。为朴素贝叶斯分类器采取了“属性条件独立假设”：对已知类别，假设所有属性相互独立。则有
 $$
 p(y|\boldsymbol x)=\frac{p(\boldsymbol x|y)p(y)}{p(\boldsymbol x)}=\frac{p(y)}{p(\boldsymbol x)}\prod_{i=1}^d p(x_i|y)
 $$
@@ -495,7 +495,30 @@ $$
 $$
 h_{nb}(\boldsymbol x)=\arg \max_{c \in \mathcal Y} p(c)\prod_{i=1}^d p(x_i|c)
 $$
-显然，朴素贝叶斯分类器的训练过程就是基于训练集 $\mathcal D$ 来估计类-先验概率 $p(c)$ ,并为每个属性估计条件概率 $p(x_i|c)$。
+显然，朴素贝叶斯分类器的训练过程就是基于训练集 $\mathcal D$ 来估计类-先验概率 $p(c)$ ,并为每个属性估计条件概率 $p(x_i|c)$。朴素贝叶斯采用**属性条件独立性**的假设，对于给定的待分类观测数据 $\mathcal D$ ，计算在 $\mathcal D$ 出现的条件下，各个目标类出现的概率（即后验概率），将该后验概率最大的类作为 $\mathcal D$ 所属的类。
+
+#### 朴素贝叶斯的优缺点
+
+朴素贝叶斯的优点有4个，分别是：
+
+1. 朴素贝叶斯模型发源于古典数学理论，有稳定的分类效率。
+2. 对缺失数据不太敏感，算法也比较简单，常用于文本分类。
+3. 分类准确度高，速度快。
+4. 对小规模的数据表现很好，能处理多分类任务，适合增量式训练，当数据量超出内存时，我们可以一批批的去增量训练(朴素贝叶斯在训练过程中只需要计算各个类的概率和各个属性的类条件概率，这些概率值可以快速地根据增量数据进行更新，无需重新全量计算)。
+
+朴素贝叶斯的缺点有3个，分别是：
+
+1. 对训练数据的依赖性很强，如果训练数据误差较大，那么预测出来的效果就会不佳。
+
+2. 理论上，朴素贝叶斯模型与其他分类方法相比具有最小的误差率。
+
+   但是在实际中，因为朴素贝叶斯“朴素，”的特点，导致在属性个数比较多或者属性之间相关性较大时，分类效果不好。
+
+   而在属性相关性较小时，朴素贝叶斯性能最为良好。
+
+   对于这一点，有半朴素贝叶斯之类的算法通过考虑部分关联性适度改进。
+
+3. 需要知道先验概率，且先验概率很多时候是基于假设或者已有的训练数据所得的，这在某些时候可能会因为假设先验概率的原因出现分类决策上的错误。
 
 ### 半朴素贝叶斯分类器
 
@@ -503,9 +526,9 @@ $$
 
 ## Fisher线性判别分析(LDA)
 
-​	给定训练样例集，设法将样例投影到一条直线上，使得同类样例的投影点尽可能接近，异类样例的投影点尽可能远离；在对新样本进行分类时，将其投影到同样的这条直线上，再根据投影点的位置来确定新样本的类别。
+给定训练样例集，设法将样例投影到一条直线上，使得同类样例的投影点尽可能接近，异类样例的投影点尽可能远离；在对新样本进行分类时，将其投影到同样的这条直线上，再根据投影点的位置来确定新样本的类别。
 
-​	对于二分类，给定数据集 $D=\{(\boldsymbol x_i,y_i)\}_{i=1}^m,\ y_i \in {0,1}$ ，令 $X_i, \ \boldsymbol\mu_i, \ \boldsymbol \Sigma_i$ 分别表示第 $i \in \{0,1\}$ 类示例的集合、均值向量、协方差矩阵。若将数据投影到直线 $\boldsymbol \omega $ 上，则两类样本中心在直线上的投影分别为 $\boldsymbol \omega^T \boldsymbol \mu_0$ 和 $\boldsymbol \omega^T \boldsymbol \mu_1$；若将所有样本点都投影到直线上，则两类样本的协方差分别为 $\boldsymbol \omega^T \boldsymbol \Sigma_0 \boldsymbol \omega$ 和 $\boldsymbol \omega^T \boldsymbol \Sigma_1 \boldsymbol \omega$。欲使同类样例的投影点尽可能接近，可以让同类样例投影点的协方差尽可能小，即 $\boldsymbol \omega^T \boldsymbol \Sigma_0 \boldsymbol \omega + \boldsymbol \omega^T \boldsymbol \Sigma_1 \boldsymbol \omega$ 尽可能小；而欲使异类样例的投影点尽可能远离，可以让类中心之间的距离尽可能大，即 $||\boldsymbol \omega^T \boldsymbol \Sigma_0 \boldsymbol \omega-\boldsymbol \omega^T \boldsymbol \Sigma_1 \boldsymbol \omega||_2^2$ 尽可能大，同时考虑二者，则可得到欲最大化的目标
+对于二分类，给定数据集 $D=\{(\boldsymbol x_i,y_i)\}_{i=1}^m,\ y_i \in {0,1}$ ，令 $X_i, \ \boldsymbol\mu_i, \ \boldsymbol \Sigma_i$ 分别表示第 $i \in \{0,1\}$ 类示例的集合、均值向量、协方差矩阵。若将数据投影到直线 $\boldsymbol \omega $ 上，则两类样本中心在直线上的投影分别为 $\boldsymbol \omega^T \boldsymbol \mu_0$ 和 $\boldsymbol \omega^T \boldsymbol \mu_1$；若将所有样本点都投影到直线上，则两类样本的协方差分别为 $\boldsymbol \omega^T \boldsymbol \Sigma_0 \boldsymbol \omega$ 和 $\boldsymbol \omega^T \boldsymbol \Sigma_1 \boldsymbol \omega$。欲使同类样例的投影点尽可能接近，可以让同类样例投影点的协方差尽可能小，即 $\boldsymbol \omega^T \boldsymbol \Sigma_0 \boldsymbol \omega + \boldsymbol \omega^T \boldsymbol \Sigma_1 \boldsymbol \omega$ 尽可能小；而欲使异类样例的投影点尽可能远离，可以让类中心之间的距离尽可能大，即 $||\boldsymbol \omega^T \boldsymbol \Sigma_0 \boldsymbol \omega-\boldsymbol \omega^T \boldsymbol \Sigma_1 \boldsymbol \omega||_2^2$ 尽可能大，同时考虑二者，则可得到欲最大化的目标
 $$
 \begin{align}
 J &= \frac{||\boldsymbol \omega^T \boldsymbol \Sigma_0 \boldsymbol \omega-\boldsymbol \omega^T \boldsymbol \Sigma_1 \boldsymbol \omega||_2^2}{\boldsymbol \omega^T \boldsymbol \Sigma_0 \boldsymbol \omega + \boldsymbol \omega^T \boldsymbol \Sigma_1 \boldsymbol \omega} \\
@@ -529,56 +552,56 @@ J=\frac{\boldsymbol \omega^T\boldsymbol S_b \boldsymbol \omega}{\boldsymbol \ome
 $$
 于是LDA的最大化目标即 $\boldsymbol S_b$ 与 $\boldsymbol S_\omega$ 的“广义瑞利商”。
 
-​	由于 $J$ 的分子与分母都是关于 $\boldsymbol \omega$ 的二次项，因此上式得解与 $\boldsymbol \omega$ 无关，只与其方向有关。则可令 $\boldsymbol \omega^T \boldsymbol S_w \boldsymbol \omega=1$，则上式等价于
+由于 $J$ 的分子与分母都是关于 $\boldsymbol \omega$ 的二次项，因此上式得解与 $\boldsymbol \omega$ 无关，只与其方向有关。则可令 $\boldsymbol \omega^T \boldsymbol S_w \boldsymbol \omega=1$，则上式等价于
 $$
 \min_{\boldsymbol \omega} \quad -\boldsymbol \omega^T\boldsymbol S_b \boldsymbol \omega \\
 s.t. \quad \boldsymbol \omega^T \boldsymbol S_w \boldsymbol \omega=1.
 $$
- 	由拉格朗日乘子法，上式等价于
+ 由拉格朗日乘子法，上式等价于
 $$
 \boldsymbol S_b \boldsymbol \omega=\lambda \boldsymbol S_\omega \boldsymbol \omega
 $$
-​	其中 $\lambda$ 是拉格朗日乘子，注意到 $\boldsymbol S_b \boldsymbol \omega$ 的方向恒为 $\boldsymbol \mu_0-\boldsymbol \mu_1$，（$(\boldsymbol \mu_0-\boldsymbol \mu_1)^T\boldsymbol \omega$ 是标量），可令
+其中 $\lambda$ 是拉格朗日乘子，注意到 $\boldsymbol S_b \boldsymbol \omega$ 的方向恒为 $\boldsymbol \mu_0-\boldsymbol \mu_1$，（$(\boldsymbol \mu_0-\boldsymbol \mu_1)^T\boldsymbol \omega$ 是标量），可令
 $$
 \boldsymbol S_b \boldsymbol \omega=\lambda(\boldsymbol \mu_0-\boldsymbol \mu_1)
 $$
-​	代入可得
+代入可得
 $$
 \boldsymbol \omega= \boldsymbol S_\omega^{-1}(\boldsymbol \mu_0-\boldsymbol \mu_1)
 $$
-​	考虑到数值解的稳定性，通常对 $\boldsymbol S_w$ 进行奇异值分解。LDA可从贝叶斯决策理论的角度禅师并可证明，当两类的数据同先验，满足高斯分布且协方差相等时，LDA可达最优分类。
+考虑到数值解的稳定性，通常对 $\boldsymbol S_w$ 进行奇异值分解。LDA可从贝叶斯决策理论的角度禅师并可证明，当两类的数据同先验，满足高斯分布且协方差相等时，LDA可达最优分类。
 
-​	对于多分类任务，假设存在 $N$ 个类，且第 $i$ 类示例数位 $m_i$ ，可定义“全局散度矩阵”
+对于多分类任务，假设存在 $N$ 个类，且第 $i$ 类示例数位 $m_i$ ，可定义“全局散度矩阵”
 $$
 \begin{align}
 \boldsymbol S_t &= \boldsymbol S_b+\boldsymbol S_\omega \\
 &= \sum_{i=1}^m(\boldsymbol x_i- \boldsymbol \mu)(\boldsymbol x_i- \boldsymbol \mu)^T
 \end{align}
 $$
-​		将类内散度矩阵重定义为每个类别的散度矩阵之和
+将类内散度矩阵重定义为每个类别的散度矩阵之和
 $$
-\boldsymbol S_\omega=\sum_{i=1}^N \boldsymbol S_{\omega_i}
+\boldsymbol S_\omega=\sum_{i=1}^N \boldsymbol S_{\omega_i}其中
 $$
-​	其中
+其中
 $$
 \boldsymbol S_{\omega_i}=\sum_{\boldsymbol x\in X_i}(\boldsymbol x-\boldsymbol \mu_i)(\boldsymbol x-\boldsymbol \mu_i)^T
 $$
-​	由此可得
+由此可得
 $$
 \begin{align}
 \boldsymbol S_b &= \boldsymbol S_t-\boldsymbol S_\omega  \\
 &= \sum_{i=1}^N m_i(\boldsymbol \mu_i-\boldsymbol \mu)(\boldsymbol \mu_i-\boldsymbol \mu)^T
 \end{align}
 $$
-​	由上可知多分类LDA可以有多种实现方法：使用 $\boldsymbol S_b, \ \boldsymbol S_\omega, \ \boldsymbol S_t$ 三者中的任何两者即可。一种常见的实现时采用以下优化目标
+由上可知多分类LDA可以有多种实现方法：使用 $\boldsymbol S_b, \ \boldsymbol S_\omega, \ \boldsymbol S_t$ 三者中的任何两者即可。一种常见的实现时采用以下优化目标
 $$
 \max_W \frac{tr(\boldsymbol W^T \boldsymbol S_b \boldsymbol W)}{tr(\boldsymbol W^T \boldsymbol S_\omega \boldsymbol W)}
 $$
-​	其中 $W \in \mathbb R^{d \times (N-1)}$，$tr(\cdot)$ 表示矩阵的迹，上式可通过如下广义特征值问题求解：
+其中 $W \in \mathbb R^{d \times (N-1)}$，$tr(\cdot)$ 表示矩阵的迹，上式可通过如下广义特征值问题求解：
 $$
 \boldsymbol S_b \boldsymbol W=\lambda \boldsymbol S_\omega \boldsymbol W
 $$
-​	$\boldsymbol W$ 的闭式解则是 $\boldsymbol S_\omega^{-1}\boldsymbol S_b$ 的 $d^\prime$ 个最大非零广义特征值所对应的特征向量组成的矩阵，$d^\prime \le N-1$。因此LDA也常被视为一种经典的监督降维技术。  
+$\boldsymbol W$ 的闭式解则是 $\boldsymbol S_\omega^{-1}\boldsymbol S_b$ 的 $d^\prime$ 个最大非零广义特征值所对应的特征向量组成的矩阵，$d^\prime \le N-1$。因此LDA也常被视为一种经典的监督降维技术。  
 
 ## 高斯混合模型（聚类）
 
@@ -602,7 +625,163 @@ $$
 $$
 
 
+
 ## EM算法
+
+## 集成学习
+
+集成学习通过构建并结合多个学习器来完成学习任务。
+
+### CART决策树
+
+#### 分类树
+
+CART分类树采用 **基尼指数** 选择最优特征，同时决定该特征的最优二值切分点。
+$$
+Gini(p)=\sum_{k=1}^mp_k(1-p_k)=1-\sum_{k=1}^kp_k^2
+$$
+对于样本集合 $D$ 及类别 $c$
+$$
+Gini(D)=1-\sum_{k=1}^k(\frac{|c_k|}{|D|})^2
+$$
+数据集 $D$ 的纯度可用基尼值度量。直观来说，$Gini(D)$ 反映了从数据集 $D$ 中抽取两个样本，其类别标记不一致的概率。因此，$Gini(D)$ 越小，则数据集 $D$ 的纯度越高。 
+
+选择 $D$ 中某特征 $A$ 的某一取值 $a$ 进行分割，分割为 $D_1,D_2$ 两部分。
+$$
+Gain\_Gini(D,A)=\frac{|D_1|}{|D|}Gini(D_1)+\frac{|D_2|}{|D|}Gini(D_2) \\
+	\Rightarrow \min_{i \in A}Gain\_Gini(D,A)=\min_{A \in Attribute}(\min_{i\in A}Gain\_Gini(D,A))
+$$
+
+#### 回归树
+
+算法如下：
+
+对于连续型数据 $D=\{(x_1,y_1),(x_2,y_2),...,(x_n,y_n)\}$，选择最优切分变量 $j$ 与切分点 $s$：
+$$
+j,s=\arg\min_{j,s}[\min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1)^2+\min_{c_2}\sum_{}x_i\in R_2(j,s)(y_i-c_2)^2]
+$$
+用最优切分变量 $x_j$ 与切分点 $s$ 划分区域并决定相应的输出值：
+$$
+R_1(j,s)=\{x|x_j \le s\},\ \ R_2(j,s)=\{x|x_j>s\} \\
+c_m=\frac{1}{N}\sum_{x_i\in R_m(j,s)}y_i, \ \ m=1,2
+$$
+将输入空间划分为 $M$ 个区域 $R_1,R_2,...,R_M$ ，生成决策树
+$$
+f(x)=\sum_{m=1}^Mc_mI(x\in R_m)
+$$
+其中 $I$ 为指示函数，当 $I(true)$ 时为 1， 否则为 0。
+
+### Boosting
+
+Boosting是一种序列化方法，是一类可将弱学习器提升为强学习器的算法。这类算法先从初始训练集训练出一个基学习器，再根据基学习器的表现对训练样本分布进行调整，然后基于调整后的样本分布来训练下一个基学习器。如此重复进行，直至基学习器数目到达指定值 $T$，最终将这 $T$ 个基学习器进行加权结合。
+
+#### AdaBoost
+
+#### 提升树算法（Boosting Decision Tree）
+
+##### 提升树模型
+
+提升树是一种**加性模型**，将多个决策树简单地叠加，可表示为：
+$$
+f_M(x)=\sum_{m=1}^Mh(x;w)
+$$
+其中，$h(x;w)$ 表示决策树，$w$ 表示决策树的参数，$M$ 为树的个数。
+
+对于给定样本 $D=\{(x_1,y_1),(x_2,y_2),...,(x_n,y_n)\}$，提升树模型的训练就是，选择决策树的参数 $w={w_1,w_2,...,w_M}$ 以最小化损失函数 $\sum_{i=1}^n L(y_i,f_M(x_i))$。即
+$$
+\arg\min_w\sum_{i=1}^n L(y_i,F_M(x_i))=\arg\min_w\sum_{i=1}^nL(y_i,\sum_{m=1}^Mh(x;w))
+$$
+
+##### 提升树算法
+
+根据(83)式，提升树模型可表示为一个迭代过程
+$$
+f_m(x)=f_{m-1}(x)+h_m(x;w), \ m=1,2,3...m
+$$
+因此提升树的训练可以按照迭代的过程来完成，在 $m$ 次迭代中，每次生成一个新的决策树 $h(x; w)$。
+
+首先初始化提升树 $f_0(x)=0$，第 $m$ 步确定第 $m$ 个决策树 $h_m(x;w)$，即选择一个合适的决策树参数 $w$，使损失函数最小，即
+$$
+\hat w_m=\arg\min_w\sum_{i=1}^n L(y_i,f_{m-1}(x_i)+h_m(x_i;w))
+$$
+对于上式的求解是提升树算法的关键。若损失函数采用平方损失函数，则有
+$$
+\begin{align}
+L(y_i,f_{m-1}(x_i)+h_m(x_i;w))&=[y_i-f_{m-1}(x_i)-h_m(x_i;w)]^2 \\
+&=[r_{m,i}-h_m(x_i;w)]^2
+\end{align}
+$$
+其中，$r_{m,i}=y_i-f_{m-1}(x_i)$ 表示模型 $f_{m-1}(x)$ 拟合数据 $(x_i,y_i)$ 的残差。
+
+于是上式就上式就变成了选择合适的决策树参数 $w$，使得决策树的输出 $h(x;w)$ 与残差 $r_{m,i}$ 的误差尽可能小。
+
+综上可得提升树算法： 
+
+![2069323307](/home/vincent/Typora/ML.assets/2069323307.jpg)
+
+​																			提升树算法
+
+#### GDBT(梯度提升树)
+
+GBDT结合了回归树与提升树的思想，并将其推广到一般情形。对于一般的损失函数，计算残差不是很方便，计算节点输出值 $c_m$ 也变得不容易。于是GBDT使用最速下降的近似方法来计算残差的近似值。即
+$$
+r_{m,i}=-\left[\frac{\partial L(y_i,f(x_i))}{\partial f(x_i)}\right]_{f(x)=f_{m-1}(x)}
+$$
+GDBT算法：
+
+---
+
+输入：训练数据集 $D=\{(x_1,y_1),(x_2,y_2),...,(x_n,y_n)\}$；损失函数 $L(y,f(x))$。
+
+1	初始化 $f_0(x)=\arg\min_c \sum_{i=1}^n L(y_i,c)$。
+
+2	For $m=1,2,...,M$
+
+3		对于每一个样本 $(x_i,y_i)$，计算负梯度
+$$
+r_{m,i}=-\left[\frac{\partial L(y_i,f(x_i))}{\partial f(x_i)}\right]_{f(x)=f_{m-1}(x)}
+$$
+4		利用 $\{(x_i,r_{m,i})\}_{i=1,2,...,n}$ 训练出第 $m$ 棵回归树 $h_m(x;w)$，其叶节点划分的区域为 $R_{m,j},j=1,2,...,J$
+
+5		对于回归树 $h_m(x;w)$ 的每一个叶节点，计算其输出值
+$$
+c_{m,j}=\arg\min_c\sum_{x_i \in R_{m,j}}L(y_i,f_{m-1}(x_i)+c),\ \ j=1,2,...,J
+$$
+6		更新 $f_m(x)=f_{m-1}(x)+\sum_{j=1}^J c_{m,j}I(x \in R_{m,j})$
+
+7	得到最终提升回归树
+$$
+\hat f(x)=f_M(x)=\sum_{m=1}^M\sum_{j=1}^Jc_{m,j}I(x \in R_{m,j})
+$$
+输出：梯度提升树 $\hat f(x)$
+
+---
+
+GBDT中用新的模型不断拟合损失函数的负梯度来使总的损失函数值变小的过程与传统的使用梯度下降最小化损失函数的过程一致。对于传统梯度下降过程，有
+$$
+x_m=x_{m-1}-\eta \nabla_f(x_{m-1})
+$$
+由此可知对应关系，GBDT中的损失函数 $L(y,f(x))$ 即对应 $f(x)$，而 $f(x)$ 即对应 $x$，则当前模型 $f_m(x)$ 对应 $x_m$，新的模型 $h_m(x;w)$ 对应 $\nabla f_m(x_{m-1})$，那么 $f_m(x)=f_{m-1}(x)+h_m(x;w)$ 就对应 $x_m=x_{m-1}-\eta\nabla f_m(x_{m-1})$。而此时的 $\eta=1$。
+
+使用一阶泰勒展开推导：
+
+对于损失函数 $L(y,f_{m-1}(x)+h_m(x))$，式中 $y$ 与 $f_{m-1}(x)$ 均为常数，根据 $f(x)$ 在 $x_0$ 处的一阶泰勒展开
+$$
+f(x)=f(x_0)+f^\prime(x_0)(x-x_0)
+$$
+将损失函数一阶泰勒展开，有
+$$
+\begin{align}
+L(y,f_{m-1}(x)+h_m(x;w))&=L(y,f_{m-1}(x))+L^\prime(y,f_{m-1}(x))h_m(x;w) \\
+&=L(y,f_{m-1}(x))-L^\prime(y,f_{m-1}(x))^2 \\
+&<L(y,f_{m-1}(x))
+\end{align}
+$$
+其中 $h_m(x;w)=-L^\prime(y,f_{m-1}(x))$。即每一轮使用新的模型来拟合损失函数当前的负梯度。
+
+#### 二元GBDT分类算法
+
+#### 多元GBDT分类算法
 
 ## K-means算法
 
@@ -614,8 +793,6 @@ $$
 
 ## 支持向量机
 
-## 集成学习
-
-## k均值聚类
+## k均值
 
 ## 主成分分析

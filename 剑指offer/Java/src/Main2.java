@@ -1,35 +1,49 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main2 {
-
+	private static int k = 0;
+	private static boolean flag = false;
 	public static void main(String[] args) { 
 		Scanner scan = new Scanner(System.in);
 		int N = scan.nextInt(), M = scan.nextInt();
-		int grid[][] = new int[N][M];
-		for (int i = 0; i < N; ++i) {
+		scan.nextLine();
+		List<String> str = new ArrayList<>();
+		int m[][] = new int[M][2];
+		for (int i = 0; i < N; ++i)
+			str.add(scan.nextLine());
+		for (int i = 0; i < M; ++i) {
+			m[i][0] = scan.nextInt();
+			m[i][1] = scan.nextInt();
 			scan.nextLine();
-			for (int j = 0; j < M; ++j)
-				grid[i][j] = scan.nextInt();
 		}
-		int result = fun(grid);
-		System.out.println(result);
+		LongestSuq(str, m, N, M);
 	}
-	
-	public static int fun(int[][] grid) {
-		if (grid == null || grid.length == 0 || grid[0].length == 0)
-			return 0;
-		int row = grid.length, col = grid[0].length;
-		int result = 0;
-		for (int i = 0; i < row; ++i) {
-			for (int j = 0; j < col; ++j) {
-				if (grid[i][j] > 0)
-					result += 4 * grid[i][j] + 2;
-				if (i > 0)
-					result -= 2 * Math.min(grid[i][j], grid[i-1][j]);
-				if (j > 0)
-					result -= 2 * Math.min(grid[i][j], grid[i][j-1]);
+	public static void LongestSuq(List<String> str, int m[][], int N, int M) {
+		for (int i = 0; i < M; ++i) {
+			String tmp = str.get(m[i][0]-1) + str.get(m[i][1]-1);
+			for (int j = 1; j < tmp.length(); ++j) {
+				backtrack(tmp, 0, i, "");
+				if (flag) {
+					k = i - 1;
+					flag = false;
+					break;
+				}
 			}
+			System.out.println(k);
+			str.add(tmp);
 		}
-		return result;
+	} 
+	
+	public static void backtrack(String tmp, int t, int n, String sub) {
+		if (t == n) {
+			if (sub != null && !tmp.contains(sub))
+				flag = true;
+			return;
+		}
+
+		backtrack(tmp, t+1, n, sub + '0');
+		backtrack(tmp, t+1, n, sub+'1');
 	}
 }

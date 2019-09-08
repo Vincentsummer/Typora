@@ -25,6 +25,7 @@ package vPack;
 public class StringSort {
 
 	private static final int R = 256;		// 字符串键范围
+	private static int f = 0;
 	/**
 	 * LSD：低位优先的字符串排序（Least-Signifcant-Digit First，LSD），仅适用于键长度都相同的序列。
 	 * 基本步骤：
@@ -33,16 +34,16 @@ public class StringSort {
 	 * 然后，从右向左以下一个字符作为关键字，用键索引计数法排序，总共需要排序W次。
 	 * **/
 	public void LSDSort(String str[], int w) {
-		// a为待排序字符串数组， w 为字符串长度，所有字符串长度必须相同
+		// str为待排序字符串数组， w 为字符串长度，所有字符串长度必须相同
 		int n = str.length;
 		String aux[] = new String[n];		// 辅助数组
 		
 		// 从右往左，对第k个字符，用键索引计数法排序
 		for (int k = w - 1; k >= 0; k--) {
 			int count[] = new int[R+1];
-			// 计算键的频率
+			// 计算键的频率，对应索引值加1，以便计算初始索引
 			for (int i = 0; i < n; i++)
-				count[str[i].charAt(k) + 1]++;
+				count[str[i].charAt(k)+1]++;
 			// 计算键排序后的初始索引
 			for (int r = 0; r < R; r++)
 				count[r+1] += count[r];
@@ -65,35 +66,41 @@ public class StringSort {
 	 * 比如“RON”和“RONG”，显然“RON”应小于“RONG”，所以字符串末尾在字符集中对应的整数应该最小。
 	 * 为此定义一个特殊方法charAt，用来映射键字符和整数值，当索引达到字符串末尾时，默认为最小键0。
 	 * **/
-	public void MSDSort(String str[], String[] aux, int start, int end, int index) {
+	
+	public void MSD(String str[]) {
+		String aux[] = new String[str.length];
+		MSDSort(str, aux, 0, str.length-1, 0);
+	}
+	
+	private void MSDSort(String str[], String[] aux, int start, int end, int index) {
 	    /**
-	     * MSD排序的递归方法. 即对array[start...end]中的每个字符串，按照第index个字符进行键索引计数排序
+	     * MSD排序的递归方法. 即对str[start...end]中的每个字符串，按照第index个字符进行键索引计数排序
 	     * 
 	     * @param array 待排序子序列
-	     * @param aux   辅助数组
+	     * @param aux   辅助数组		
 	     * @param start 子序列起始索引
 	     * @param end   子序列结束索引
 	     * @param index 子序列中运用键索引计数排序的字符索引位置，从0开始计
 	     */
+		if (start >= end)
+			return;
 		// 1. 频数统计
-		int count[] = new int[R];
+		int count[] = new int[R+2];
 		for (int i = start; i <= end; i++)
-			count[charAt(str[i], index)]++;
+			count[charAt(str[i], index)+2]++;
 		// 2. 转换为键在排序结果中的起始位置, 注意str数组的起始位置为start
-		int idx[] = new int[R];
-		idx[0] = start;
-		for (int i = 1; i < R; i++)
-			idx[i] = idx[i-1] + count[i-1];
+		for (int i = 0; i < R+1; i++)
+			count[i+1] += count[i];
 		// 3. 复制排序结果至辅助数组
 		for (int i = start; i <= end; i++)
-			aux[idx[charAt(str[i], index)]++] = str[i];
-		// 回写排序结果
+			aux[count[charAt(str[i], index)+1]++] = str[i];
+		// 4. 回写排序结果
 		for (int i = start; i <= end; i++)
-			str[i] = aux[i];
+			str[i] = aux[i-start];	// 此处为aux[i-start]，count[i] 记录的是字符在子数组中的位置
 		
-		// 递归处理首字符相同的子数组，此时idx保存的是每个键的结束的索引+1
+		// 递归处理首字符相同的子数组，此时count保存的是每个键结束的索引+1
 		for (int i = 0; i < R; i++)
-			MSDSort(str, aux, idx[i]-count[i], idx[i] - 1, index+1);
+			MSDSort(str, aux, start + count[i], start + count[i+1] - 1, index+1);
 		
 	}
 	// 计算字符串在索引index处的字符键值
@@ -103,8 +110,8 @@ public class StringSort {
 			return -1;
 		}
 		if (index >= s.length())
-			return 0;
-		return s.charAt(index) + 1;
+			return -1;
+		return s.charAt(index);
 	}
 	
 	/**
@@ -118,26 +125,29 @@ public class StringSort {
 	 * @return 
 	 * **/
 	public void threeWayStrQuickSort(String str[], int low, int high, int d) {
-		int left = low, right = high, i = low + 1;
+		if (low >= high || low < 0 || high < 0)
+			return;
+		int left = low - 1, right = left;
 		// 查找字符表得到字符对应的唯一键值，并以此为基数
-		int v = charAt2(str[low], d);
-		while (i <= right) {
-			int t = charAt2(str[i], d);
-			if (t < v)
-				swap(str, left++, right++);
-			else if (t > v)
-				swap(str, i, right--);
-			else
-				i++;
+		int v = charAt2(str[high], d);
+
+		for (int j = low; j <= high; j++) {
+			int t = charAt2(str[j], d);
+			if (v >= t) {
+				swap(str, ++right, j);
+				if (v > t)
+					swap(str, ++left, right);
+			}
 		}
-		threeWayStrQuickSort(str, low, left-1, d);
+		threeWayStrQuickSort(str, low, left, d);
+		threeWayStrQuickSort(str, right+1, high, d);
 		// str[left...right]之间都是 d 索引处等于 v 的键。若v<0，说明已达到字符串末尾，不需要再进行三向切分
 		if (v >= 0)
-			threeWayStrQuickSort(str, left, right, d+1);
-		threeWayStrQuickSort(str, right+1, high, d);
+			threeWayStrQuickSort(str, left+1, right, d+1);
+		
 	}
 	private int charAt2(String s, int d) {
-		if (d == s.length())
+		if (d >= s.length())
 			return -1;
 		return s.charAt(d);
 	}
@@ -146,5 +156,10 @@ public class StringSort {
 		String tmp = str[idx1];
 		str[idx1] = str[idx2];
 		str[idx2] = tmp;
+	}
+	public void toString(String str[]) {
+		for (String s : str)
+			System.out.print(s + " ");
+		System.out.println("");
 	}
 }

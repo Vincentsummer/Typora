@@ -14,23 +14,23 @@ public class IsMatch_44 {
 	// 若(s[i] == p[j] || p[j] == "?") && dp[i-1][j-1]，则dp[i][j] = true;
 	// 若p[j] == "*" && (dp[i-1][j] = true || dp[i][j-1] = true)，则dp[i][j] = true
     public boolean isMatch(String s, String p) {
-        boolean[][] value = new boolean[p.length()+1][s.length()+1];
-        value[0][0] = true;
+        boolean[][] dp = new boolean[p.length()+1][s.length()+1];
+        dp[0][0] = true;
 
         for(int i = 1;i <= p.length(); i++){
             if(p.charAt(i-1) == '*'){
-                value[i][0] = value[i-1][0];
+            	dp[i][0] = dp[i-1][0];
                 for(int j = 1;j <= s.length(); j++){
-                    value[i][j] = (value[i][j-1] || value[i-1][j]);
+                	dp[i][j] = (dp[i][j-1] || dp[i-1][j]);
                 }
             }
             else {
-                value[i][0] = false;
+            	dp[i][0] = false;
                 for(int j = 1;j <= s.length(); j++){
-                    value[i][j] = (s.charAt(j-1) == p.charAt(i-1) || p.charAt(i-1) == '?') && value[i-1][j-1];
+                	dp[i][j] = (s.charAt(j-1) == p.charAt(i-1) || p.charAt(i-1) == '?') && dp[i-1][j-1];
                 }
             }
         }
-        return value[p.length()][s.length()];
+        return dp[p.length()][s.length()];
     }
 }

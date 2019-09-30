@@ -2,11 +2,9 @@ package vTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 import java.util.Stack;
 
 public class BiTreeOp implements AbstractBiTree{
-	private static Scanner scan = new Scanner(System.in);
 	private BinaryTreeNode root = new BinaryTreeNode();
 	
 	public BiTreeOp(String tree) {
@@ -74,6 +72,7 @@ public class BiTreeOp implements AbstractBiTree{
 			System.out.println(node.val);
 	}
 	
+	// 先序递归遍历
 	private void printPreOrderByRecursion(BinaryTreeNode node) {
 		if (node == null)
 			return;
@@ -87,6 +86,7 @@ public class BiTreeOp implements AbstractBiTree{
 		printPreOrderByRecursion(root);
 	}
 	
+	// 中序递归遍历
 	public void printInOrderByRecursion(BinaryTreeNode node) {
 		if (node == null)
 			return;
@@ -100,6 +100,7 @@ public class BiTreeOp implements AbstractBiTree{
 		printInOrderByRecursion(root);
 	}
 	
+	// 后序递归遍历
 	public void printPostOrderByRecursion(BinaryTreeNode node) {
 		if (node == null)
 			return;

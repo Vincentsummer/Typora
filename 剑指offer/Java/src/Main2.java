@@ -1,49 +1,51 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main2 {
-	private static int k = 0;
-	private static boolean flag = false;
+	private static int MOD = 1_009;
 	public static void main(String[] args) { 
 		Scanner scan = new Scanner(System.in);
-		int N = scan.nextInt(), M = scan.nextInt();
-		scan.nextLine();
-		List<String> str = new ArrayList<>();
-		int m[][] = new int[M][2];
-		for (int i = 0; i < N; ++i)
-			str.add(scan.nextLine());
-		for (int i = 0; i < M; ++i) {
-			m[i][0] = scan.nextInt();
-			m[i][1] = scan.nextInt();
+		int n = scan.nextInt();
+		int m = scan.nextInt();
+		int A[][] = new int[n][m];
+		int B[][] = new int[n][m];
+		for (int i = 0 ; i < n; ++i) {
 			scan.nextLine();
+			for (int j = 0; j < m; ++j)
+				A[i][j] = scan.nextInt();
 		}
-		LongestSuq(str, m, N, M);
+		for (int i = 0 ; i < n; ++i) {
+			scan.nextLine();
+			for (int j = 0; j < m; ++j)
+				B[i][j] = scan.nextInt();
+		}
+		matrixMultiply(A, B, n, m);
 	}
-	public static void LongestSuq(List<String> str, int m[][], int N, int M) {
-		for (int i = 0; i < M; ++i) {
-			String tmp = str.get(m[i][0]-1) + str.get(m[i][1]-1);
-			for (int j = 1; j < tmp.length(); ++j) {
-				backtrack(tmp, 0, i, "");
-				if (flag) {
-					k = i - 1;
-					flag = false;
-					break;
-				}
-			}
-			System.out.println(k);
-			str.add(tmp);
-		}
-	} 
 	
-	public static void backtrack(String tmp, int t, int n, String sub) {
-		if (t == n) {
-			if (sub != null && !tmp.contains(sub))
-				flag = true;
-			return;
+	public static void matrixMultiply(int[][] A, int[][] B, int n, int m) {
+		int tmp[][] = new int[n][n];
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < n; ++j) {
+				int c = 0;
+				for (int k = 0; k < m; ++k) {
+					c += B[i][k] * B[j][k];
+					c %= MOD;
+				}
+				tmp[i][j] = c;
+			}
 		}
-
-		backtrack(tmp, t+1, n, sub + '0');
-		backtrack(tmp, t+1, n, sub+'1');
+		int res[][] = new int[n][m];
+		System.out.println(n + " " + m);
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; ++j) {
+				int c = 0;
+				for (int k = 0; k < n; ++k) {
+					c += tmp[i][k] * A[k][j];
+					c %= MOD;
+				}
+				res[i][j] = c;
+				System.out.print(c + " ");
+			}
+			System.out.println("");
+		}
 	}
 }

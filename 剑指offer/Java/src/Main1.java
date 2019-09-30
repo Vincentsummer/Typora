@@ -1,31 +1,32 @@
 import java.util.Scanner;
 
 public class Main1 {
-	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		int N = scan.nextInt();
+		int n = scan.nextInt();
+		int m = scan.nextInt();
+		String s[] = new String[n];
 		scan.nextLine();
-		int A[] = new int[N];
-		for (int i = 0; i < N; i++)
-			A[i] = scan.nextInt();
-		getNumber(A, N);
+		for (int i = 0; i < n; ++i) {
+			s[i] = scan.nextLine();
+		}
+		int a[] = new int[m];
+		for (int i = 0; i < m; ++i)
+			a[i] = scan.nextInt();
+		solution(s, a, m, n);
 	}
 	
-	public static void getNumber(int A[], int N) {
-		int aux[] = new int[N];
+	public static void solution(String[] s, int[] a, int m , int n) {
 		int res = 0;
-		for (int i = 0; i < N; ++i)
-			aux[A[i]-1] = i;
-			
-		for (int i = 0; i < N; ++i) {
-			if (A[i] != i+1) {
-				res++;
-				A[aux[i]] = A[i];
-				aux[A[i] - 1] = aux[i];
-				A[i] = i+1;
-				aux[i] = i+1;
+		for (int i = 0; i < m; ++i) {
+			int count = 0;
+			int dict[] = new int[5];
+			for (int j = 0; j < n; ++j) {
+				int k = s[j].charAt(i) - 'A';
+				dict[k] += a[i];
+				count = Math.max(dict[k], count);
 			}
+			res += count;
 		}
 		System.out.println(res);
 	}

@@ -247,22 +247,91 @@ FIFO，也称为命名管道，它是一种文件类型。
 - apt-get dist-upgrade 升级系统
 - apt-get remove package 删除包
 - apt-get remove package --purge 删除包，包括配置文件等
-- apt-get clean && sudo apt-get autoclean 清理无用的包
+- apt-get clean 清理所有软件缓存
+- sudo apt-get autoclean 清理旧版本软件缓存
+- sudo apt-get autoremove 清理系统不再使用的孤立软件
 
 ### 查看Ubuntu系统版本信息
 
 - cat /proc/version	查看linux内核、gcc编译器和Ubuntu版本号
 - uname -a	显示linux的内核版本和系统位数
 - lsb_release -a	查看ubuntu发行版本号
+- dpkg --get-selections|grep linux 查看当前系统所有内核
+- sudo apt-get remove 【内核名】删除内核
 
 ### 进程相关命令
 
 - ps [pid]	查看进程（特定pid的进程）
-
 - ps a	显示现行终端机下的所有程序，包括其他用户的程序。
-
 - ps -A	显示所有程序。
-
 - kill [pid]	杀死特定进程 （eg：kill －9 324，-9为强制杀死）
 
-  
+### 查看CPU型号,内存大小,硬盘空间的命令
+
+1. uname -a # 查看内核/操作系统/CPU信息的linux系统信息 
+2. head -n l /etc/issue # 查看操作系统版本 
+3. cat /proc/cpuinfo # 查看CPU信息 
+4. hostname # 查看计算机名的linux系统信息命令 
+5. lspci -tv # 列出所有PCI设备  
+6. lsusb -tv # 列出所有USB设备的linux系统信息命令 
+7. lsmod # 列出加载的内核模块  
+8. env # 查看环境变量资源 
+9. free -m # 查看内存使用量和交换区使用量  
+10. df -h # 查看各分区使用情况 
+11. du -sh # 查看指定目录的大小  
+12. grep MemTotal /proc/meminfo # 查看内存总量 
+13. grep MemFree /proc/meminfo # 查看空闲内存量  
+14. uptime # 查看系统运行时间、用户数、负载 
+15. cat /proc/loadavg # 查看系统负载磁盘和分区  
+16. mount | column -t # 查看挂接的分区状态 
+17. fdisk -l # 查看所有分区  
+18. swapon -s # 查看所有交换分区 
+19. hdparm -i /dev/hda # 查看磁盘参数(仅适用于IDE设备)  
+20. dmesg | grep IDE # 查看启动时IDE设备检测状况网络 
+21. ifconfig # 查看所有网络接口的属性  
+22. iptables -L # 查看防火墙设置 
+23. route -n # 查看路由表  
+24. netstat -lntp # 查看所有监听端口 
+25. netstat -antp # 查看所有已经建立的连接  
+26. netstat -s # 查看网络统计信息进程 
+27. ps -ef # 查看所有进程  
+28. top # 实时显示进程状态用户 
+29. w # 查看活动用户  
+30. id # 查看指定用户信息 
+31. last # 查看用户登录日志  
+32. cut -d: -f1 /etc/passwd # 查看系统所有用户 
+33. cut -d: -f1 /etc/group # 查看系统所有组  
+34. crontab -l # 查看当前用户的计划任务服务 
+35. chkconfig –list # 列出所有系统服务  
+36. chkconfig –list | grep on # 列出所有启动的系统服务程序 
+37. rpm -qa # 查看所有安装的软件包  
+38. cat /proc/cpuinfo ：查看CPU相关参数的linux系统命令 
+39. cat /proc/partitions ：查看linux硬盘和分区信息的系统信息命令  
+40. cat /proc/meminfo ：查看linux系统内存信息的linux系统命令 
+41. cat /proc/version ：查看版本，类似uname -r  
+42. cat /proc/ioports ：查看设备io端口 
+43. cat /proc/interrupts ：查看中断  
+44. cat /proc/pci ：查看pci设备的信息 
+45. cat /proc/swaps ：查看所有swap分区的信息  
+
+### 使用swap创建临时分区
+
+```bash
+# count的大小就是增加的swap空间的大小，64M是块大小，所以空间大小是bs*count=1024MB
+sudo dd if=/dev/zero of=/tmp/mem.swap bs=64M count=16
+
+ # 查看当前分区大小
+ free -m
+ 
+ # 格式转换并挂载
+ sudo mkswap /tmp/mem.swap
+ sudo swapon /tmp/mem.swap
+ 
+ # 确认是否增加成功
+ free -m
+ 
+ # 用完后关闭临时空间
+ swapoff -a
+
+```
+

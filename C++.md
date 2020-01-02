@@ -1,10 +1,14 @@
 # C++学习笔记
 
-## 基本知识与思想
+# 基本知识与思想
 
-### 左值与右值，左值引用与右值引用（C++11）
+## 内联函数
 
-#### 左值与右值
+## 虚函数与纯虚函数
+
+## 左值与右值，左值引用与右值引用（C++11）
+
+### 左值与右值
 
 所有的具名变量或对象都是左值，而匿名变量则是右值。左值可以取地址，而右值不能。
 
@@ -15,7 +19,7 @@
 int i = getVar();
 ```
 
-#### 引用
+### 引用
 
 C++中的引用通过**const指针实现**，**分配额外的内存空间**。
 
@@ -31,7 +35,7 @@ const int &d = 1; // ok
 int &e = 1; // error
 ```
 
-####  右值引用（C++11）
+###  右值引用（C++11）
 
 右值引用是对右值的引用。通过右值引用的声明，右值又“重获新生”，其生命周期与右值引用类型变量的生命周期一样长，只要该变量还活着，该右值临时量将会一直存活下去。
 
@@ -76,15 +80,15 @@ T&& t在发生自动类型推断（如函数模板的类型自动推导，或aut
 - 所有的右值引用叠加到右值引用上仍然还是一个右值引用；
 - 所有的其他引用类型之间的叠加都将变成左值引用。
 
-### 浅拷贝与深拷贝
+## 浅拷贝与深拷贝
 
 浅拷贝：如果复制的对象中引用了一个外部内容（例如分配在堆上的数据），那么在复制这个对象的时候，让新旧两个对象指向同一个外部内容，就是浅拷贝。（指针虽然复制了，但所指向的空间内容并没有复制，而是由两个对象共用，两个对象不独立，删除空间存在）**默认构造函数为浅拷贝**。
 
 深拷贝：如果在复制这个对象的时候为新对象制作了外部对象的独立复制，就是深拷贝。
 
-### 构造函数、拷贝构造函数、移动构造函数、赋值操作符、移动赋值操作符
+## 构造函数、拷贝构造函数、移动构造函数、赋值操作符、移动赋值操作符
 
-#### 构造函数、拷贝构造函数与赋值操作符
+### 构造函数、拷贝构造函数与赋值操作符
 
 C++中一般创建对象，拷贝或赋值的方式有构造函数，拷贝构造函数，赋值函数这三种方法。
 
@@ -120,7 +124,7 @@ C++中一般创建对象，拷贝或赋值的方式有构造函数，拷贝构�
 - 对象不存在，且用别的对象来初始化，就是拷贝构造函数。
 - 对象存在，用别的对象来给它赋值，就是赋值函数。
 
-#### 移动构造函数与移动赋值操作符（C++11）
+### 移动构造函数与移动赋值操作符（C++11）
 
 **移动构造函数使用右值引用来避免临时对象的拷贝构造（深拷贝）**，将资源（堆、系统对象等）通过浅拷贝方式从一个对象转移到另一个对象，这样能减少不必要的临时对象的创建、拷贝以及销毁，可以大幅度提高C++应用程序的性能，消除临时对象的维护(创建和销毁)对性能的影响。移动赋值操作符同理。
 
@@ -319,51 +323,107 @@ Deconstructor
 Deconstructor
 ```
 
-### std::move（移动语义）与std::forward（完美转发）（C++11）
+## std::move（移动语义）与std::forward（完美转发）（C++11）
 
-### auto 与 decltype（C++11）的联系与区别
+## auto 与 decltype（C++11）的联系与区别
 
-### C++ volatile特性
+## C++ volatile特性
 
-### C++单例模式的实现
+## C++单例模式的实现
 
-### 不完全类型
+## 不完全类型
 
-### SFINAE特性
+## SFINAE特性
 
-### RAII与Scoped Locking思想
+## RAII与Scoped Locking思想
 
-### C++中的四种智能指针
+## C++中的四种智能指针
 
-### static_cast与dynamic_cast
+## static_cast、dynamic_cast与 reinterpret_cast
 
-### atexit登记函数
+## atexit登记函数
 
-### syscall系统调用
+## syscall系统调用
 
-### std::function与std::bind（C++11）
+## std::function与std::bind（C++11）
 
-### std::ref和std::cref
+## std::ref和std::cref
 
-### static_assert与assert
+## static_assert与assert
 
-### size_type，size_t，ssize_t，与int的区别
+## size_type，size_t，ssize_t，与int的区别
 
-### calloc 与 malloc
+## calloc 与 malloc
 
-### typedef 与 define
+## typedef 与 define
 
-### struct，union及enum
+## struct，union及enum
 
-## 网络编程
+# STL容器
 
-### 观察者模式
+## stl中的value_type
 
-### LockFree思想
+## C++ limits头文件的用法
 
-### 网络编程模型
+## std::chrono库
 
-#### Reactor模式
+## numeric_limits
 
-#### 多线程编程中的fork()函数
+# C函数
+
+## gmtime和gmtime_r函数
+
+```c
+struct tm *gmtime(const time_t *timep);
+struct tm *gmtime_r(const time_t *timep, struct tm *result);
+```
+
+gmtime(线程不安全的)是把日期和时间转换为格林威治(GMT)时间的函数。将参数timep 所指的time_t 结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果由结构tm返回。使用gmtime后要立即处理结果，否则返回的指针指向的内容可能会被覆盖。gmtime_r()函数功能与此相同，但是它可以将数据存储到用户提供的结构体中，由于使用了用户分配的内存，是不会出错的。
+
+## strerror与strerror_r函数
+
+```c
+#include <string.h>
+char *strerror(int errnum);
+int strerror_r(int errnum, char *buf, size_t n);
+```
+
+strerror()用来依参数errnum的错误代码来查询其错误原因的描述字符串，然后将该字符串指针返回。对于函数strerror_r，第一个参数errnum是错误代码，第二个参数buf是用户提供的存储错误描述的缓存，第三个参数n是缓存的大小。strerror()不是线程安全的，strerror_r()是线程安全的。
+	在单线程的程序中，errno是全局变量。然后，在多线程程序中，errno会按照每个线程来储存，因此具有线程安全性。
+
+# 多线程网络编程
+
+## 观察者模式
+
+## LockFree思想
+
+## std::thread
+
+## std::mutex与std::condition_variable
+
+## std::unique_lock与std::lock_guard
+
+## 网络编程模型
+
+### Reactor模式
+
+## 多线程编程中的fork()函数
+
+## IO模型
+
+### 阻塞 I/O（blocking IO）
+
+### 非阻塞 I/O（nonblocking IO）
+
+### I/O 多路复用（ IO multiplexing）
+
+#### select
+
+#### poll
+
+#### epoll
+
+### 异步 I/O（asynchronous IO）
+
+### 信号驱动 I/O（ signal driven IO）
 

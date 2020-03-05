@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libvpackage_SRC.a  CMakeFiles/vpackage_SRC.dir/test.cpp.o
+/usr/bin/ranlib ../lib/libvpackage_SRC.a

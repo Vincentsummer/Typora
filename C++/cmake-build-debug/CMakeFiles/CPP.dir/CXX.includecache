@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vincent/Typora/C++/LeetCodeMain.cpp
+Leetcode/solution.h
+/home/vincent/Typora/C++/Leetcode/solution.h
+
+/home/vincent/Typora/C++/Leetcode/solution.h
+string
+-
+queue
+-
+
+/home/vincent/Typora/C++/main.cpp
+stdio.h
+-
+vPackage/vList/vList.h
+/home/vincent/Typora/C++/vPackage/vList/vList.h
+
+/home/vincent/Typora/C++/vPackage/vList/vList.h
+iostream
+-
+

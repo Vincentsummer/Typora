@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CPP"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Leetcode\;CMake Files\Leetcode\Test\;CMake Files\vPackage\;CMake Files\vPackage\Test\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CPP">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/CPP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 CPP"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CPP/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/CPP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 CPP/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="leetcode">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/lib/libleetcode.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/Leetcode"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Makefile&quot;  VERBOSE=1 leetcode"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="leetcode/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/lib/libleetcode.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/Leetcode"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Makefile&quot;  VERBOSE=1 leetcode/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Test/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Test/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Leetcode/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vincent">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/lib/libvincent.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/vPackage"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Makefile&quot;  VERBOSE=1 vincent"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vincent/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/lib/libvincent.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/vPackage"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Makefile&quot;  VERBOSE=1 vincent/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="atomic_flagTest">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/atomic_flagTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 atomic_flagTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="atomic_flagTest/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/atomic_flagTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 atomic_flagTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="semaphoreTest">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/semaphoreTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 semaphoreTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="semaphoreTest/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/semaphoreTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 semaphoreTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="syncTest">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/syncTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 syncTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="syncTest/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/syncTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 syncTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DingingPhilosophersTest">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/DingingPhilosophersTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 DingingPhilosophersTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DingingPhilosophersTest/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/DingingPhilosophersTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 DingingPhilosophersTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mytest">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/mytest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 mytest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mytest/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/mytest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 mytest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="virtualDestructorTest">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/virtualDestructorTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 virtualDestructorTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="virtualDestructorTest/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/virtualDestructorTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 virtualDestructorTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sortTest">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/sortTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 sortTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sortTest/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/sortTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 sortTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bankerTest">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/bankerTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 bankerTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bankerTest/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/bin/bankerTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 bankerTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/vPackage/Test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/108_sortedArrayToBST.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/1116_zeroEvenOdd.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/1122_relativeSortArray.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/112_hasPathSum.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/1154_dayOfYear.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/1209_removeDuplicates.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/1219_getMaximumGold.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/1235_jobScheduling.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/1252_oddCells.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/127_ladderLength.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/1337_kWeakestRows.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/142_detectCycle.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/144_preorderTraversal.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/147_insertionSortList.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/150_evalRPN.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/24_swapPairs.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/26_removeDuplicates.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/279_numSquares.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/306_isAdditiveNumber.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/342_isPowerOfFour.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/368_largestDivisibleSubset.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/437_pathSum.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/459_repeatedSubstringPattern.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/462_minMoves2.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/476_findComplement.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/479_largestPalindrome.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/529_updateBoard.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/559_maxDepth.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/621_leastInterval.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/622_myCircularQueue.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/649_predictPartyVictory.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/650_minSteps.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/678_checkValidString.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/731_myCalendarTwo.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/796_rotateString.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/83_deleteDuplicates.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/899_orderlyQueue.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/94_inorderTraversal.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/951_flipEquiv.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/Test/LeetCodeMain.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/m0401_findWhetherExistsPath.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/m1010_StreamRank.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/m1701_add.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/m38_permutation.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/m67_strToInt.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/main.cpp">
+			<Option target="CPP"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/Test/DingingPhilosophersTest.cpp">
+			<Option target="DingingPhilosophersTest"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/Test/atomic_flagTest.cpp">
+			<Option target="atomic_flagTest"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/Test/bankerTest.cpp">
+			<Option target="bankerTest"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/Test/mytest.cpp">
+			<Option target="mytest"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/Test/semaphoreTest.cpp">
+			<Option target="semaphoreTest"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/Test/sortTest.cpp">
+			<Option target="sortTest"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/Test/syncTest.cpp">
+			<Option target="syncTest"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/Test/virtualDestructorTest.cpp">
+			<Option target="virtualDestructorTest"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vSortAndSearch/sort.cpp">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vSortAndSearch/sort.h">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vThread/vBanker.cpp">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vThread/vBanker.h">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vThread/vDiningPhilosophers.cpp">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vThread/vDiningPhilosophers.h">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vThread/vSycnTest.cpp">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vTree/vTree.cpp">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vTree/vTree.h">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vUtils.cpp">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/vUtils.h">
+			<Option target="vincent"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Leetcode\"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/Leetcode/Test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Leetcode\Test\"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\vPackage\"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/Test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\vPackage\Test\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

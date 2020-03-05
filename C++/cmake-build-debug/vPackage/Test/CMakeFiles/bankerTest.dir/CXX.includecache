@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vincent/Typora/C++/vPackage/Test/bankerTest.cpp
+zconf.h
+-
+../vThread/vBanker.h
+/home/vincent/Typora/C++/vPackage/vThread/vBanker.h
+
+/home/vincent/Typora/C++/vPackage/vThread/vBanker.h
+iostream
+-
+fstream
+-
+vector
+-
+

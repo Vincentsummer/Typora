@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -march=native -std=c++11 -rdynamic -O0   CMakeFiles/virtualDestructorTest.dir/virtualDestructorTest.cpp.o  -o ../../bin/virtualDestructorTest ../../lib/libvincent.a -lpthread 

@@ -5,13 +5,20 @@
  *      Author: vincent
  */
 
-#include <iostream>
+#include <stdio.h>
+#include "vPackage/vList/vList.h"
 
 int main(void){
-	for (int i = 0 ; i < 3; i++)
-		if (i == 1)
-			std::cout << i << std::endl;
+//	char buf[] = "bbbb";
+	const char a = '1';
+	char *p = (char *) &a;
+	*p = '2';
+//	buf[1] = 'c';
+//	*(p+1) = '2';
+	printf("%c", *p);
+	return 0;
 }
+
 
 
 

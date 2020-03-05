@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vincent/Typora/C++/vPackage/Test/syncTest.cpp
+iostream
+-
+thread
+-
+sstream
+-
+../vThread/vSyncTest.h
+/home/vincent/Typora/C++/vPackage/vThread/vSyncTest.h
+
+/home/vincent/Typora/C++/vPackage/vThread/vSyncTest.h
+functional
+-
+mutex
+-
+condition_variable
+-
+atomic
+-
+thread
+-
+

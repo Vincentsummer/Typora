@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vincent/Typora/C++/vPackage/Test/sortTest.cpp
+iostream
+-
+../vSortAndSearch/sort.h
+/home/vincent/Typora/C++/vPackage/vSortAndSearch/sort.h
+
+/home/vincent/Typora/C++/vPackage/vSortAndSearch/sort.h
+../vUtils.h
+/home/vincent/Typora/C++/vPackage/vUtils.h
+
+/home/vincent/Typora/C++/vPackage/vUtils.h
+

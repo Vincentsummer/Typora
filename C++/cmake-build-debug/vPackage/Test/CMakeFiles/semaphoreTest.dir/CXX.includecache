@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vincent/Typora/C++/vPackage/Test/semaphoreTest.cpp
+thread
+-
+vector
+-
+iostream
+-
+../vThread/vSemaphore.h
+/home/vincent/Typora/C++/vPackage/vThread/vSemaphore.h
+../vTime/vTime.h
+/home/vincent/Typora/C++/vPackage/vTime/vTime.h
+
+/home/vincent/Typora/C++/vPackage/vThread/vSemaphore.h
+mutex
+-
+condition_variable
+-
+
+/home/vincent/Typora/C++/vPackage/vTime/vTime.h
+chrono
+-
+time.h
+-
+string
+-
+

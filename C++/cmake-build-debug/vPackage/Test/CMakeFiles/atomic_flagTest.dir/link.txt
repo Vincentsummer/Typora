@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -march=native -std=c++11 -rdynamic -O0   CMakeFiles/atomic_flagTest.dir/atomic_flagTest.cpp.o  -o ../../bin/atomic_flagTest ../../lib/libvincent.a -lpthread 

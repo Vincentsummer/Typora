@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="C__"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="C__">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/C__" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 C__"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="C__/fast">
+				<Option output="/home/vincent/Typora/C++/cmake-build-debug/C__" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vincent/Typora/C++/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 C__/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vincent/Typora/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/vincent/Typora/C++/Test/test.cpp">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/main.cpp">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/BiTreeNextNode_8.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/CMyString_1.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/CQueue_9.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/ConstructBiTree_7.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/CutRope_14.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/DeleteDuplication_18_2.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/DeleteNodeInList_18_1.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/DulicateNoModify.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/Duplicate_3.1.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/Exponent_16.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/Fibonacci_10.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/MinValueOfRevSeq_11.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/NumberOf1InBinary_15.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/PathOfMatrix_12.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/Print1ToN_17.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/PrintListReversingly_6.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/RangeOfRobotMoving_13.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/ReplaceBlank_5.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/offerTest/Singleton_2.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/test.c">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/c_memory_model.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/includes/vBiTreeWithParent.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/includes/vBinaryTree.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/includes/vList.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/vPackage/includes/vSort/myBinarySearch.h">
+			<Option target="C__"/>
+		</Unit>
+		<Unit filename="/home/vincent/Typora/C++/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

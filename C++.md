@@ -28,7 +28,7 @@ GCC（GNU Compiler Collection，GNU编译器套件），是由 GNU 开发的编�
 
 库是写好的，现有的，成熟的，可以复用的代码。本质上来说，库是一种可执行代码的二进制形式，可以被操作系统载入内存执行。库有两种：静态库（.a、.lib）和动态库（.so、.dll）。
 
-<img src="/home/vincent/Summer/可视化/静态库与动态库.png" style="zoom:50%;" />
+<img src="C++.assets/静态库与动态库-1587387660849.png" alt="静态库与动态库" style="zoom: 50%;" />
 
 ## 内联函数
 
@@ -779,7 +779,7 @@ e的类型必须符合以下三个条件中的任何一个：
 
 		1. e的类型是目标类型type的公有派生类。
   		2. e的类型是目标type的共有基类。
-    		3. e的类型就是目标type的类型。
+                		3. e的类型就是目标type的类型。
 
 **被转换对象obj的类型T1必须是多态类型**，即T1必须公有继承自其它类，或者T1拥有虚函数（继承或自定义）。若T1为非多态类型，使用dynamic_cast会报编译错误。
 
@@ -931,7 +931,7 @@ strerror()用来依参数errnum的错误代码来查询其错误原因的描述�
 
 select系统调用的的用途是：在一段指定的时间内，监听用户感兴趣的文件描述符上可读、可写和异常等事件。
 
-<img src="/home/vincent/Typora/C++.assets/select1.png" alt="select1" style="zoom: 67%;" />
+<img src="C++.assets/select1.png" alt="select1" style="zoom: 67%;" />
 
 如上所示，用户首先将需要进行IO操作的socket添加到select中，然后阻塞等待select系统调用返回。当数据到达时，socket被激活，select函数返回。用户线程正式发起read请求，读取数据并继续执行。
 
@@ -1138,7 +1138,7 @@ struct epitem {
 
 当调用epoll_wait检查是否有发生事件的连接时，只是检查eventpoll对象中的rdllist双向链表是否有epitem元素而已，如果rdllist链表不为空，则这里的事件复制到用户态内存（使用共享内存提高效率）中，同时将事件数量返回给用户。因此epoll_waitx效率非常高。epoll_ctl在向epoll对象中添加、修改、删除事件时，从rbr红黑树中查找事件也非常快，也就是说epoll是非常高效的，它可以轻易地处理百万级别的并发连接。
 
-<img src="/home/vincent/Typora/C++.assets/epitem.jpg" style="zoom:67%;" />
+<img src="C++.assets/epitem.jpg" style="zoom:67%;" />
 
 一颗红黑树，一张准备就绪句柄链表，少量的内核cache，就解决了大并发下的socket处理问题。
 
@@ -1146,7 +1146,7 @@ struct epitem {
 - 执行epoll_ctl()时，如果增加socket句柄，则检查在红黑树中是否存在，存在立即返回，不存在则添加到树干上，然后向内核注册回调函数，用于当中断事件来临时向准备就绪链表中插入数据；
 - 执行epoll_wait()时立刻返回准备就绪链表里的数据即可。
 
-<img src="/home/vincent/Typora/C++.assets/epoll.png" style="zoom: 80%;" />
+<img src="C++.assets/epoll.png" style="zoom: 80%;" />
 
 ##### epoll的两种触发模式
 

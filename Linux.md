@@ -405,7 +405,7 @@ int sscanf(const char *restrict buf, const char *restrict format, va_list arg);
 
 linux下的进程通信手段基本上是从Unix平台上的进程通信手段继承而来的。如下图所示：
 
-<img src="/home/vincent/Typora/Linux.assets/Linux1.png" style="zoom:67%;" />
+<img src="Linux.assets/Linux1.png" style="zoom:67%;" />
 
 linux下进程间通信的几种主要手段简介：
 

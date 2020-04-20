@@ -118,11 +118,7 @@ $$
 
 **定理3：**设 $\lambda_1, \lambda_2$ 是对称矩阵 $\boldsymbol A$ 的两个特征值，$\boldsymbol p_1, \boldsymbol p_2$ 是对应的特征向量。若 $\lambda_1 \ne \lambda_2$， 则 $\boldsymbol p_1$ 与  $\boldsymbol p_2$ 正交。
 
-
-
 <u>线性变化</u>（线性映射）：是在作用于两个向量空间的函数，它保持**向量加法和标量乘法**的运算，从一个向量空间变化到另一个向量空间。实际上**线性变换表现出来就是一个矩阵**。	
-
-
 
 ​	对于一个给定的线性变换（矩阵 $\boldsymbol A$ ），它的特征向量 $\xi$ 经过这个线性变换后，得到的新向量仍然与原来的 $\xi $ 保持在同一条直线上，但其长度也许会改变。一个特征向量的长度在该线性变换下缩放的比例（$ \lambda $）称为特征值（本征值）。
 
@@ -415,110 +411,105 @@ $$
 
 ## 微积分
 
-- ##### 自然常数 $e$
+#### 自然常数 $e$
 
-  $$
-  e=\lim_{n\to \infty}(1+\frac{1}{n})^n
-  $$
-  推广到复频域：
-  $$
-  e^i=\lim_{n\to \infty}(1+\frac{i}{n})^n
-  $$
+$$
+e=\lim_{n\to \infty}(1+\frac{1}{n})^n
+$$
+推广到复频域：
+$$
+e^i=\lim_{n\to \infty}(1+\frac{i}{n})^n
+$$
 
-- ##### 泰勒公式（级数）
+#### 泰勒公式（级数）
 
-  泰勒公式可以用若干项连加式来表示一个函数，这些相加的项由函数在某一点的导数求得。例如在 $a$ 点处，有
-  $$
-  f(x)=\frac{f(a)}{0!}+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}}{n!}(x-a)^n+R_n(x)
-  $$
-  常见的麦克劳林级数（$x=0$ 处展开）：
+泰勒公式可以用若干项连加式来表示一个函数，这些相加的项由函数在某一点的导数求得。例如在 $a$ 点处，有
+$$
+f(x)=\frac{f(a)}{0!}+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}}{n!}(x-a)^n+R_n(x)
+$$
+常见的麦克劳林级数（$x=0$ 处展开）：
 
-  1. 指数函数       $e^x=\sum_{n=0}^\infty \frac{x^n}{n!}$
-  2. 自然对数       $\ln(x+1)=\sum_{n=0}^\infty \frac{(-1)^{n+1}}{n}x^n,\forall x\in(-1,1]$
-  3. 几何级数       $\frac{1}{1-x}=\sum_{n=0}^\infty x^n,|x|<1$
-  4. 正弦函数       $\sin x=\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}x^{2n+1},\forall x$
-  5. 余弦函数       $\cos x=\sum_{n=0}^\infty \frac{(-1)^n}{(2n)!}x^{2n}$
+1. 指数函数       $e^x=\sum_{n=0}^\infty \frac{x^n}{n!}$
+2. 自然对数       $\ln(x+1)=\sum_{n=0}^\infty \frac{(-1)^{n+1}}{n}x^n,\forall x\in(-1,1]$
+3. 几何级数       $\frac{1}{1-x}=\sum_{n=0}^\infty x^n,|x|<1$
+4. 正弦函数       $\sin x=\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}x^{2n+1},\forall x$
+5. 余弦函数       $\cos x=\sum_{n=0}^\infty \frac{(-1)^n}{(2n)!}x^{2n}$
 
+#### 傅里叶变换
 
-- ##### 傅里叶变换
-	- **傅里叶级数**
+##### 傅里叶级数
 
-		傅里叶：任意周期函数可以分解为三角函数之和。
+傅里叶：任意周期函数可以分解为三角函数之和。
+$$
+f(x)=C+\sum_{n=1}^\infty (a_n\cos(\frac{2\pi n}{T}x)+b_n\sin(\frac{2\pi n}{T}x)),C\in R
+$$
 
-	$$
-	f(x)=C+\sum_{n=1}^\infty (a_n\cos(\frac{2\pi n}{T}x)+b_n\sin(\frac{2\pi n}{T}x)),C\in R
-	$$
+​	其中$a_n=\frac{2}{T}\int_{x_0}^{x_0+T}f(x)\cdot \cos (\frac{2\pi nx}{T})dx,n\in {0,1,2....}$ ， $b_n=\frac{2}{T}\int_{x_0}^{x_0+T}f(x)\cdot \sin (\frac{2\pi nx}{T})dx,n\in {1,2....}$，$C=\frac{a_0}{2}$，即：
+$$
+f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty (a_n\cos(\frac{2\pi n}{T}x)+b_n\sin(\frac{2\pi n}{T}x)),C\in R
+$$
+​	上式即为周期函数 $f(x)$ 的傅里叶级数
 
-	​	其中$a_n=\frac{2}{T}\int_{x_0}^{x_0+T}f(x)\cdot \cos (\frac{2\pi nx}{T})dx,n\in {0,1,2....}$ ， $b_n=\frac{2}{T}\int_{x_0}^{x_0+T}f(x)\cdot \sin (\frac{2\pi nx}{T})dx,n\in {1,2....}$，$C=\frac{a_0}{2}$，即：
-	$$
-	f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty (a_n\cos(\frac{2\pi n}{T}x)+b_n\sin(\frac{2\pi n}{T}x)),C\in R
-	$$
-	​	上式即为周期函数 $f(x)$ 的傅里叶级数。
+##### 傅里叶变换
 
-	- **傅里叶变换**
+傅里叶级数针对周期函数，对于非周期函数，需要傅里叶变换。
 
-		傅里叶级数针对周期函数，对于非周期函数，需要傅里叶变换。
+![1555731379581](Math_learning.assets/1555731379581-1567651397420.png)
 
-		![1555731379581](/home/vincent/Typora/Math_learning.assets/1555731379581-1567651397420.png)
+如上图：
 
-		如上图：
-		
-		- (a) 周期函数，可以通过傅里叶级数画出频域图
+- (a) 周期函数，可以通过傅里叶级数画出频域图
 - (b) 增长周期，频域图变得越来越密集
-		- (c) $T=\infty$，得到傅里叶变换，频域图变为连续的曲线
-		
-		将傅里叶级数通过欧拉公式，修改为复数形式：
-		$$
-		f(x)=\sum_{n=-\infty}^{\infty}c_n\cdot e^{i\frac{2\pi nx}{T}}
+- (c) $T=\infty$，得到傅里叶变换，频域图变为连续的曲线
+
+将傅里叶级数通过欧拉公式，修改为复数形式：
 $$
-		其中 $c_n=\frac{1}{T}\int_{x_0}^{x_0+T}f(x)\cdot e^{\frac{2\pi nx}{T}}dx$
-		
-		当 $T\to \infty$ 时，
-		$$
-		\begin{cases} 
-		f(x)=\sum_{n=-\infty}^{\infty}c_n\cdot e^{i\frac{2\pi nx}{T}} \\
-		\\
-		T=\infty\\ 
-		\end{cases} \Rightarrow f(x)= \int_{-\infty}^{\infty}F(\omega)e^{i\omega x}d\omega
-		$$
-		其中 $\omega $ 代表频率。$F(\omega)$ 即为傅里叶变换，得到的为频域曲线。
-		$$
-		\begin{cases} 
-		c_n=\frac{1}{T}\int_{x_0}^{x_0+T}f(x)\cdot e^{\frac{2\pi nx}{T}}dx \\
-		\\
-		T=\infty
-		\end{cases} \Rightarrow F(\omega)=\frac{1}{2\pi}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx
+f(x)=\sum_{n=-\infty}^{\infty}c_n\cdot e^{i\frac{2\pi nx}{T}}
 $$
-		
-		
-		
-		傅里叶变换的四种变体：
+其中 $c_n=\frac{1}{T}\int_{x_0}^{x_0+T}f(x)\cdot e^{\frac{2\pi nx}{T}}dx$。
+
+当 $T\to \infty$ 时，
 
 
-| **变换**                   | 时域           | 频域           |
-| -------------------------- | -------------- | -------------- |
-| 连续傅里叶变换（FT）       | 连续非周期信号 | 连续非周期信号 |
-| 傅里叶级数（FS）           | 连续周期信号   | 离散非周期信号 |
-| 离散时间傅里叶变换（DTFT） | 离散非周期信号 | 连续周期信号   |
-| 离散傅里叶变换（DFT）      | 离散周期信号   | 离散周期信号   |
+$$
+\begin{cases} 
+f(x)=\sum_{n=-\infty}^{\infty}c_n\cdot e^{i\frac{2\pi nx}{T}} \\
+	\\
+T=\infty\\ 
+\end{cases} 
+\Rightarrow f(x)= \int_{-\infty}^{\infty}F(\omega)e^{i\omega x}d\omega \\
+$$
+其中 $\omega $ 代表频率。$F(\omega)$ 即为傅里叶变换，得到的为频域曲线。
+$$
+\begin{cases} 
+	c_n=\frac{1}{T}\int_{x_0}^{x_0+T}f(x)\cdot e^{\frac{2\pi nx}{T}}dx \\
+	\\
+	T=\infty
+	\end{cases} \Rightarrow F(\omega)=\frac{1}{2\pi}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx
+$$
+傅里叶变换的四种变体：
 
+|            变换            |      时域      |      频域      |
+| :------------------------: | :------------: | :------------: |
+|    连续傅里叶变换（FT）    | 连续非周期信号 | 连续非周期信号 |
+|      傅里叶级数（FS）      |  连续周期信号  | 离散非周期信号 |
+| 离散时间傅里叶变换（DTFT） | 离散非周期信号 |  连续周期信号  |
+|   离散傅里叶变换（DFT）    |  离散周期信号  |  离散周期信号  |
 
-
-## 其他
-
-- 欧拉公式
+#### 欧拉公式
 
 $$
 e^{ix}=\cos x + i\sin x
 $$
 
-​	其中 $i$ 代表虚数。（$i=\sqrt{-1}$）
+其中 $i$ 代表虚数。（$i=\sqrt{-1}$）,当 $x=\pi$ 时，有（被誉为上帝公式）
 
-​	当 $x=\pi$ 时，有（被誉为上帝公式）
 $$
-e^{i\pi}+1=0
+e^{i\pi}+1=0	
 $$
-​	可以把 $e^{ix}$ 看作是通过单位圆的圆周运动来描述单位圆上的点，$\cos x+i\sin x$ 通过复平面的坐标来描述单位圆上的点，两者是同一个点不同的描述方式。
+
+
+		可以把 $e^{ix}$ 看作是通过单位圆的圆周运动来描述单位圆上的点，$\cos x+i\sin x$ 通过复平面的坐标来描述单位圆上的点，两者是同一个点不同的描述方式。
 
 ​	（例：$2^i$ 可以变换为 $e^{i\ln2}$，即表示沿单位圆周运动 $\ln2 $ 弧度。）
 

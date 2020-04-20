@@ -46,11 +46,11 @@ Linux信号机制基本上是从Unix系统中继承过来的。早期Unix系统�
 6. 与终端交互相关的信号。如用户关闭一个终端，或按下break键等情况。
 7. 跟踪进程执行的信号。
 
-<img src="/home/vincent/Typora/Linux.assets/kill-l.png" style="zoom:67%;" />
+<img src="Linux.assets/kill-l.png" style="zoom:67%;" />
 
 信号简要说明：
 
-![](/home/vincent/Typora/APUE.assets/IPC15.png)
+![](APUE.assets/IPC15.png)
 
 #### 信号在目标进程中注册
 
